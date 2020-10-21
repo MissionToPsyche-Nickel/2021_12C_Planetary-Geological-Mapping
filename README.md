@@ -6,11 +6,11 @@
     * Next step you'll need to create a connection and schema
     * Go into src-> main-> resources-> application.properties
     * You will need to change the spring.datasource.url= to your url, the last bit will be the only thing that changes if you keep default settings for setup of MySQL
-      *EX. jdbc:mysql://localhost:3306/(YOUR SCHEMA NAME HERE)
+      * EX. jdbc:mysql://localhost:3306/(YOUR SCHEMA NAME HERE)
     * Next you will need to change the spring.datasource.username= to the username you created
-      *EX. spring.datasource.username=(YOUR USERNAME HERE)
+      * EX. spring.datasource.username=(YOUR USERNAME HERE)
     * Finally, you will need to change the spring.datasource.password= to the password you created
-      *EX. spring.datasource.username=(YOUR PASSWORD HERE)
+      * EX. spring.datasource.username=(YOUR PASSWORD HERE)
     
   * Testing the first page
     * First thing is to run the program
