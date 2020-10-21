@@ -10,7 +10,7 @@
     * Next you will need to change the spring.datasource.username= to the username you created
       * EX. spring.datasource.username=(YOUR USERNAME HERE)
     * Finally, you will need to change the spring.datasource.password= to the password you created
-      * EX. spring.datasource.username=(YOUR PASSWORD HERE)
+      * EX. spring.datasource.password=(YOUR PASSWORD HERE)
     
   * Testing the first page
     * First thing is to run the program
