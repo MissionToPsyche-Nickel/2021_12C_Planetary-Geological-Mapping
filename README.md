@@ -15,7 +15,7 @@
   * Testing the first page
     * First thing is to run the program
     * Second thing is open a webbrowser
-    * Finally go to http://localhost:9090/planetarymap/user/hello
+    * Finally go to http://localhost:9090/planetarymapping/user/hello
     * You should see some text that says "Hello There!"
   
 * What she do
