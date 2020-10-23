@@ -10,18 +10,13 @@
     * Next you will need to change the spring.datasource.username= to the username you created
       * EX. spring.datasource.username=(YOUR USERNAME HERE)
     * Finally, you will need to change the spring.datasource.password= to the password you created
-      * EX. spring.datasource.username=(YOUR PASSWORD HERE)
+      * EX. spring.datasource.password=(YOUR PASSWORD HERE)
     
   * Testing the first page
     * First thing is to run the program
     * Second thing is open a webbrowser
-    * Finally go to http://localhost:9090/planetarymapping/user/hello
-    * You should see some text that says "Hello There!"
+    * Finally go to http://localhost:9090/planetarymap/
+    * You should see some text and a couple links.
   
-* What she do
-  * So you should be able to hit a few pages that all begin with http://localhost:9090/planetarymap/user
-  * You should be able to see /hello and /list/{id} from a webbrowser
-    * {id} needs to be an existing id in the database or you'll get a /error which is just cover for server 404
-  * The if you send a POST request to http://localhost:9090/planetarymap/user/add with the params String userName, String password, int type you can add a user
-    * This only works with a POST
+
   
