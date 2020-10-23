@@ -1,54 +1,39 @@
 package planetarymapping.controller;
 
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Assembler.UserModelAssembler;
-import planetarymapping.Exception.UserNotFoundException;
+import planetarymapping.Repository.AuthoritiesRepository;
 import planetarymapping.Repository.UserRepository;
-import planetarymapping.model.User;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import planetarymapping.model.UserAuthorities;
+import planetarymapping.model.Users;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-@RestController
-//@RequestMapping("/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
-        private final UserRepository repository;       //User repository decleration
-        private final UserModelAssembler assembler;     //User assembler decleration, used for RESTfulness
+        @Autowired
+        PasswordEncoder passwordEncoder;
 
-        UserController(UserRepository repository, UserModelAssembler assembler) {
-                this.repository = repository;
-                this.assembler = assembler;
+        @Autowired
+        private UserRepository userRepository;
+
+        @Autowired
+        private AuthoritiesRepository authoritiesRepository;     //Users repository decleration
+
+        UserController(UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+                this.userRepository = userRepository;
+                this.authoritiesRepository = authoritiesRepository;
         }
 
-        //GET Request listing a specific user
-        @GetMapping("/list/{id}")
-        public EntityModel<User> one(@PathVariable Long id){
-                User u = repository.findById(id)
-                         .orElseThrow(() -> new UserNotFoundException(id));
-               return assembler.toModel(u);
+        //Displaying temp hello page
+        @GetMapping("/")
+        public String hello(){
+                return "user";
         }
 
-        //GET Request to list all the users
-        @RequestMapping("/list")
-        public CollectionModel<EntityModel<User>> all(){
-                List<EntityModel<User>> us = repository.findAll().stream() //
-                        .map(assembler::toModel) //
-                        .collect(Collectors.toList());
 
-                return CollectionModel.of(us, linkTo(methodOn(UserController.class).all()).withSelfRel());
-        }
-
-        //Post to add a user to the database
-        @PostMapping("/add")
-        public String addUser(@RequestParam String userName, String password, boolean enabled){
-                User u = new User(userName);
-                repository.save(u);
-                return String.format("User %s added!", userName);
-        }
 }

@@ -24,7 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery(
-                        "SELECT user_name, password, enabled from user where user_name = ?");
+                        "SELECT username, password, enabled from users where username = ?")
+                .authoritiesByUsernameQuery(
+                        "SELECT u.username, a.authority " +
+                                "FROM user_authorities a, Users u " +
+                                "WHERE u.username = ? " +
+                                "AND u.id = a.user_id"
+                );
     }
 
     @Bean
@@ -35,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home", "/register", "/newregister").permitAll()
+                .antMatchers("/", "/home", "/register", "/error", "/map").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
