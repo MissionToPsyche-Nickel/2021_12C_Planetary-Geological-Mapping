@@ -1,60 +1,44 @@
+/*********************************************************************************/
+/**                                                                             **/
+/**This file is responsible for controlling the user view.                      **/
+/**For now, this only displays the user's username                              **/
+/**                                                                             **/
+/** Last modified 10/23/2020  by James Lanham jrl5748@psu.edu                   **/
+/*********************************************************************************/
+
 package planetarymapping.controller;
 
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Assembler.UserModelAssembler;
-import planetarymapping.Exception.UserNotFoundException;
-import planetarymapping.Repository.UsersRepository;
-import planetarymapping.model.User;
+import planetarymapping.Repository.AuthoritiesRepository;
+import planetarymapping.Repository.UserRepository;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
-
-@RestController
-@RequestMapping("/user")
+@Controller
+@RequestMapping("/user")        //Everything involving the user has the user mapping before it
 public class UserController {
 
-        private final UsersRepository repository;       //User repository decleration
-        private final UserModelAssembler assembler;     //User assembler decleration, used for RESTfulness
+        //Password encoder declaration
+        private PasswordEncoder passwordEncoder;
 
-        UserController(UsersRepository repository, UserModelAssembler assembler){
-                this.repository = repository;
-                this.assembler = assembler;
+        //User repository declaration
+        private UserRepository userRepository;
+
+        //User Authorities repository declaration
+        private AuthoritiesRepository authoritiesRepository;
+
+        //Constructor injecting the needed fields
+        UserController(PasswordEncoder passwordEncoder, UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+                this.passwordEncoder = passwordEncoder;
+                this.userRepository = userRepository;
+                this.authoritiesRepository = authoritiesRepository;
         }
 
-        //Temporary hello page
-        @RequestMapping("/hello")
+        //Displaying user page
+        @GetMapping("/")
         public String hello(){
-                return "Hello There!";
+                return "user";
         }
 
-        //Listing a specific user, uses assembler to set links
-        @RequestMapping("/list/{id}")
-        public EntityModel<User> one(@PathVariable Long id){
-                User u = repository.findById(id)
-                         .orElseThrow(() -> new UserNotFoundException(id));
-               return assembler.toModel(u);
-        }
 
-        /*
-        @RequestMapping("/list")
-        public CollectionModel<EntityModel<User>> all(){
-                List<EntityModel<User>> us = repository.findAll().stream()
-                        .map(assembler::toModel) //
-                        .collect(Collectors.toList());
-
-                return CollectionModel.of(us, linkTo(methodOn(UserController.class).all()).withSelfRel());
-        }*/
-
-        //Post to add a user to the database
-        @PostMapping("/add")
-        public String addUser(@RequestParam String userName, String password, int type){
-                User u = new User(userName, password, type);
-                repository.save(u);
-                return String.format("User %s added!", userName);
-        }
 }
