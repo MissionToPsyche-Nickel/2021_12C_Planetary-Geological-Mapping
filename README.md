@@ -1,4 +1,3 @@
-# THIS IS STILL BROKEN, USE MASTER BRANCH INSTEAD!!!
 ## PSU_Project-Psyche_Planetary_Mapping
 * Setup
   * Attaching a data base
