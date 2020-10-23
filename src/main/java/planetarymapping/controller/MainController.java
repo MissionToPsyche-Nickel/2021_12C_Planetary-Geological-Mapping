@@ -1,7 +1,14 @@
+/*********************************************************************************/
+/**                                                                             **/
+/**This file is responsible for controlling views that are not the map and the  **/
+/**user does not need to be authenticated to use.                               **/
+/**This is where the user can login, register and view the home page            **/
+/**                                                                             **/
+/** Last modified 10/23/2020  by James Lanham jrl5748@psu.edu                   **/
+/*********************************************************************************/
+
 package planetarymapping.controller;
 
-import org.jboss.jandex.Main;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +22,19 @@ import planetarymapping.model.Users;
 @Controller
 public class MainController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    //Password encoder declaration
+    private PasswordEncoder passwordEncoder;
 
-    @Autowired
+    //User repository declaration
     private UserRepository userRepository;
 
-    @Autowired
-    private AuthoritiesRepository authoritiesRepository;     //Users repository decleration
+    //User Authorities repository declaration
+    private AuthoritiesRepository authoritiesRepository;
 
-    public MainController(UserRepository repository, UserRepository userRepository) {
-        this.userRepository = repository;
+    //Constructor injecting the needed fields
+    public MainController(PasswordEncoder passwordEncoder, UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
         this.authoritiesRepository = authoritiesRepository;
     }
 

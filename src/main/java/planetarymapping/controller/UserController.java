@@ -1,35 +1,40 @@
+/*********************************************************************************/
+/**                                                                             **/
+/**This file is responsible for controlling the user view.                      **/
+/**For now, this only displays the user's username                              **/
+/**                                                                             **/
+/** Last modified 10/23/2020  by James Lanham jrl5748@psu.edu                   **/
+/*********************************************************************************/
+
 package planetarymapping.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import planetarymapping.Repository.AuthoritiesRepository;
 import planetarymapping.Repository.UserRepository;
-import planetarymapping.model.UserAuthorities;
-import planetarymapping.model.Users;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/user")        //Everything involving the user has the user mapping before it
 public class UserController {
 
-        @Autowired
-        PasswordEncoder passwordEncoder;
+        //Password encoder declaration
+        private PasswordEncoder passwordEncoder;
 
-        @Autowired
+        //User repository declaration
         private UserRepository userRepository;
 
-        @Autowired
-        private AuthoritiesRepository authoritiesRepository;     //Users repository decleration
+        //User Authorities repository declaration
+        private AuthoritiesRepository authoritiesRepository;
 
-        UserController(UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+        //Constructor injecting the needed fields
+        UserController(PasswordEncoder passwordEncoder, UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+                this.passwordEncoder = passwordEncoder;
                 this.userRepository = userRepository;
                 this.authoritiesRepository = authoritiesRepository;
         }
 
-        //Displaying temp hello page
+        //Displaying user page
         @GetMapping("/")
         public String hello(){
                 return "user";

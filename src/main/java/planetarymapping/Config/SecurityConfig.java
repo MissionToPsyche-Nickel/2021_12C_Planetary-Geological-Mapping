@@ -1,3 +1,12 @@
+/*************************************************************************************/
+/**                                                                                 **/
+/**This file is responsible for the configuration of the site's security.           **/
+/**It dictates which parts of the sites the user needs to be authenticated to use.  **/
+/**It also dictates where and how it gets the user data.                            **/
+/**                                                                                 **/
+/** Last modified 10/23/2020  by James Lanham jrl5748@psu.edu                       **/
+/*************************************************************************************/
+
 package planetarymapping.Config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +23,11 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //Injecting the dataSource Bean
     @Autowired
     private DataSource dataSource;
 
+    //Configuring how and where the user data comes from
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -33,19 +44,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 );
     }
 
+    //Creating the bean for the password encoder
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    //Securing or allowing different parts of the site to be available
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home", "/register", "/error", "/map").permitAll()
+                .antMatchers("/", "/home", "/register", "/error", "/map").permitAll() //Allows these parts to be open
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/login") //Defining the login page
                 .permitAll()
                 .and()
                 .logout()
