@@ -3,24 +3,49 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Login to your account</title>
+    <link type="text/css" rel="stylesheet" href="login.css" />
+
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
+
+<div class="navbar">
+
+    <div class="navtitle" id="navtitle">
+
+
+        <a><img src="Psychelogopinart.png" height="20" width="20"/> PSYCHE: JOURNEY TO A METAL WORLD</a>
+    </div>
+
 </div>
-<div th:if="${param.logout}">
-    You have been logged out.
+
+<div class="loginSection">
+    <div class="errors">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </div>
+
+    <div><label> Username :&nbsp&nbsp <input type="text" name="username"/> </label></div>
+    <div><label> Password:&nbsp&nbsp&nbsp&nbsp <input type="password" name="password"/> </label></div>
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
+
+<div class="buttons">
+<form class="sub" th:action="@{/login}" method="post">
     <div><input type="submit" value="Sign In"/></div>
 </form>
-<form th:action="@{/register}" method="get">
+<form class="reg" th:action="@{/register}" method="get">
     <div><input type="submit" value="Register"/></div>
 </form>
+
 <form th:action="@{/home}" method="get">
     <div><input type="submit" value="Take Me Home!"/></div>
 </form>
+</div>
+
+
+
 </body>
 </html>
