@@ -19,10 +19,24 @@ public class MapController {
     //Displaying the map view
     @GetMapping("/")
     public String map(){
-        return "map";
+        return "maps";
     }
 
-    //Displaying the admin menu for the map
-    @GetMapping("/admin")
-    public String admin(){ return "map_admin";}
+    //Displaying the map view
+    @GetMapping("/moon")
+    public String moon(){
+        return "moon";
+    }
+
+    //Displaying the map view
+    @GetMapping("/mars")
+    public String mars(){
+        return "mars";
+    }
+
+    //Displaying the map view
+    @GetMapping("/psyche")
+    public String psyche(){
+        return "psyche";
+    }
 }
