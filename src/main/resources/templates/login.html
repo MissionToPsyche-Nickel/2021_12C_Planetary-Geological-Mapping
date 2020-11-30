@@ -18,33 +18,23 @@
 
 </div>
 
-<div class="loginSection">
-    <div class="errors">
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-    </div>
-
-    <div><label> Username :&nbsp&nbsp <input type="text" name="username"/> </label></div>
-    <div><label> Password:&nbsp&nbsp&nbsp&nbsp <input type="password" name="password"/> </label></div>
+<div th:if="${param.error}">
+    Invalid username and password.
 </div>
-
-<div class="buttons">
-<form class="sub" th:action="@{/login}" method="post">
-    <div><input type="submit" value="Sign In"/></div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input id="user" type="text" name="username"/> </label></div>
+    <div><label> Password: <input id="pass" type="password" name="password"/> </label></div>
+    <div><input id="signin" type="submit" value="Sign In"/></div>
 </form>
-<form class="reg" th:action="@{/register}" method="get">
-    <div><input type="submit" value="Register"/></div>
+<form th:action="@{/register}" method="get">
+    <div><input id="reg" type="submit" value="Register"/></div>
 </form>
-
 <form th:action="@{/home}" method="get">
-    <div><input type="submit" value="Take Me Home!"/></div>
+    <div><input id="home" type="submit" value="Return"/></div>
 </form>
-</div>
-
 
 
 </body>

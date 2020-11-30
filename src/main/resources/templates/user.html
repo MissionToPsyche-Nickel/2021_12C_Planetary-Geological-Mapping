@@ -7,11 +7,11 @@
 <body>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+    <input id="signout" type="submit" value="Sign Out"/>
 </form>
 
 <form th:action="@{/home}" method="get">
-    <div> <input type="submit" value="Take Me Home!"></div>
+    <div> <input id="home" type="submit" value="Take Me Home!"></div>
 </form>
 </body>
 </html>
