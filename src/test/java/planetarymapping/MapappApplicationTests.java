@@ -7,6 +7,9 @@ import planetarymapping.controller.UserController;
 @SpringBootTest
 class MapappApplicationTests {
 
+    public static void main(String[] args) {
+    }
+
     @Test
     void contextLoads() {
     }
