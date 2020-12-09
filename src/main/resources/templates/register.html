@@ -1,23 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Register for a account </title>
-    <link type="text/css" rel="stylesheet" href="register.css" />
 </head>
 <body>
-
-<div class="navbar">
-
-    <div class="navtitle" id="navtitle">
-
-
-        <a><img src="Psychelogopinart.png" height="20" width="20"/> PSYCHE: JOURNEY TO A METAL WORLD</a>
-    </div>
-
-</div>
-
-<div class="registersection">
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
@@ -25,15 +12,14 @@
     You have been logged out.
 </div>
 <form th:action="@{/register}" method="post">
-    <div><label> User Name : <input id="user" type="text" name="userName"/> </label></div>
-    <div><label> Password: <input id="pass" type="password" name="password"/> </label></div>
+    <div><label> User Name : <input type="text" name="userName"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="hidden" name="auth" value="user"></div>
-    <div><input id="reg" type="submit" value="Register"/></div>
+    <div><input type="submit" value="Register"/></div>
 </form>
 
 <form th:action="@{/home}" method="get">
     <div> <input type="submit" value="Take Me Home!"></div>
 </form>
-</div>
 </body>
 </html>
