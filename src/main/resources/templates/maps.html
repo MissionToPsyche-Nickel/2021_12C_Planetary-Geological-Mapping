@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Maps</title>
+</head>
+<body>
+<h1>Select a Map to View.</h1>
+<p><a th:href="@{/map/moon}">Earth's Moon</a></p>
+<p><a th:href="@{/map/mars}">Mars</a></p>
+<p><a th:href="@{/map/psyche}">16-Psyche</a></p>
+<form th:action="@{/home}" method="Get">
+    <input type="submit" value="Return"/>
+</form>
+</body>
+</html>

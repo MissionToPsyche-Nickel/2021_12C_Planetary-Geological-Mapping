@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mars</title>
+    <style>
+        .img-map{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Mars</h1>
+<img th:src="@{/Mars.svg}" class="img-map">
+
+<form th:action="@{/map/}" method="Get">
+    <input type="submit" value="Return"/>
+</form>
+</body>
+</html>

@@ -1,43 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" >
+<html xmlns:th="https://www.thymeleaf.org" >
 <head>
-    <meta content="text/html" charset="UTF-8">
     <title>Planetary Mapping Home</title>
-
-    <!--Bootstrap-->
-    <link rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
 </head>
-
-
 <body>
-
-<nav class="navbar">
-    <a class="navbar-brand">
-        <img src="images/Psyche_logo.jpg" alt="Psyche logo"/>
-        Psyche
-        </a>
-</nav>
-
-
-<div class="row">
-
-    <ul>
-    <h1> Home </h1>
-    <h1> Events </h1>
-    <h1> Map </h1>
-    </ul>
-
-</div>
-
-
-
-
-<h1>Welcome to the Planetary Map of 16-Psyche!</h1>
-<h3>This has been created by Penn State Behrend Senior Design Team-10!</h3>
+<h1>Welcome!</h1>
+<h3>This library of maps has been created by Penn State Behrend Senior Design Team-10!</h3>
 
 <p>Click <a th:href="@{/user/}">here</a> to sign in.</p>
-<p>Click <a th:href="@{/map/}">here</a> to view the map.</p>
+<p>Click <a th:href="@{/map/}">here</a> to view a map.</p>
 </body>
 </html>
