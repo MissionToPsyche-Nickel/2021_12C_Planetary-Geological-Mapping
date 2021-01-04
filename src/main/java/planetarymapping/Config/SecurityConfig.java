@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home", "/register", "/error", "/map/*", "/Moon.svg", "/Mars.svg").permitAll() //Allows these parts to be open
+                .antMatchers("/", "/home", "/register", "/error", "/map/*", "/Moon.svg", "/Mars.svg", "/images/*", "/css/*").permitAll() //Allows these parts to be open
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

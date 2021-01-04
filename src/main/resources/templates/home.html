@@ -2,12 +2,43 @@
 <html xmlns:th="https://www.thymeleaf.org" >
 <head>
     <title>Planetary Mapping Home</title>
+    <link rel="stylesheet" href="css/Home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
 </head>
 <body>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" class="navbar-brand"><img src="images/Psyche_logo.jpg" alt="Psyche logo" width="100" height="100"> Psyche </a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="maps.html">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+        </ul>
+
+
+</nav>
+
+
+<img src="images/Psyche_home.png"/>
 <h1>Welcome!</h1>
+
 <h3>This library of maps has been created by Penn State Behrend Senior Design Team-10!</h3>
 
 <p>Click <a th:href="@{/user/}">here</a> to sign in.</p>
 <p>Click <a th:href="@{/map/}">here</a> to view a map.</p>
 </body>
 </html>
+
