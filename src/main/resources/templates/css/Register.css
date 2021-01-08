@@ -1,0 +1,46 @@
+body
+{
+    /*background-image: url("background-test.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    font-family: sans-serif;
+}
+
+.navbar{
+    background-image: linear-gradient(135deg, whitesmoke 50%, orange);
+    position: relative;
+    text-align: center;
+    /*background-color: whitesmoke;*/
+    padding: 10px;
+    height: 35px;
+
+}
+
+#navtitle a{
+    float: none;
+    margin: auto;
+    text-align: center;
+
+}
+.sub, .reg{
+    display: inline-flex;
+    padding: 8px;
+}
+.buttons{
+    text-align: center;
+    padding: 10px;
+    margin-right: 1.5%;
+    margin-left: 8%;
+}
+.registersection{
+    padding: 5px;
+    /*margin: 20px 5px;*/
+    text-align: center;
+}
+.loginSection div{
+    padding: 5px;
+}
+.errors{
+    text-align: center;
+
+}
