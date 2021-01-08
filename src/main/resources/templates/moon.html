@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Earth's Moon</title>
+    <style>
+        .img-map{
+            width:100%;
+        }
+    </style>
+    <!--<script type="text/javascript" th:src="@{/ZoomifyImageViewerFree-min.js}"></script>
+    <script type="text/javascript"> Z.showImage("myContainer", "ZoomifyImageExample"); </script>-->
+
+</head>
+<body>
+<h1>Earth's Moon</h1>
+<!--<div id="myContainer" style="width:900px; height:500px; margin:auto; border:1px; border-style:solid; " >-->
+    <img th:src="@{/Moon.svg}" class="img-map">
+<!--</div>-->
+
+<form th:action="@{/map/}" method="Get">
+    <input type="submit" value="Return"/>
+</form>
+</body>
+</html>
