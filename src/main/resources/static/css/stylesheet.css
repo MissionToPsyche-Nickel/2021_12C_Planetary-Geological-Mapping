@@ -1,0 +1,42 @@
+/*Global*/
+body
+{
+    font-family: sans-serif;
+}
+
+/*index.html*/
+.content-index{
+    display: grid;
+    grid-template-areas:
+            'title space space'
+            'text image image'
+            'text image image';
+}
+
+.psyche-img{
+    grid-area: image;
+    padding-left: 30%;
+}
+
+.title{
+    grid-area: title;
+    padding-left: 10%;
+}
+
+.facts{
+    grid-area: text;
+    padding-left: 12%;
+}
+
+/*maps.html, moon.html, mars.html, psyche.html*/
+.content-maps > .viewport {
+    width: 100%;
+    max-height: 10%;
+    overflow: hidden;
+    horiz-align: center;
+}
+
+.content-maps > .img-map{
+    width:100%;
+    border: 2px solid black;
+}

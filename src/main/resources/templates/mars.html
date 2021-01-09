@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Mars</title>
-    <style>
-        .img-map{
-            width:100%;
-        }
-    </style>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<h1>Mars</h1>
-<img th:src="@{/Mars.svg}" class="img-map">
 
-<form th:action="@{/map/}" method="Get">
-    <input type="submit" value="Return"/>
-</form>
+    <!--Navigation-->
+    <div th:insert="fragments/header.html :: nav"> </div>
+    <div class="content-maps">
+        <h1>Mars</h1>
+
+        <div class="viewport">
+            <img th:src="@{images/Mars.svg}" class="img-map">
+        </div>
+    </div>
 </body>
 </html>

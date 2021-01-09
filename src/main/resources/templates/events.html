@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org"  lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Earth's Moon</title>
+    <title>Planetary Mapping</title>
+
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
+
 <body>
+
     <!--Navigation-->
     <div th:insert="fragments/header.html :: nav"> </div>
-    <div class="content-maps">
-        <h1>Earth's Moon</h1>
-        <div class="viewport">
-            <img th:src="@{images/Moon.svg}" class="img-map">
-        </div>
+
+    <!--Content-->
+    <div class="content-events">
+        <h1>Construction Zone</h1>
+        <h3>This is still under construction! Come back when it is finished!</h3>
     </div>
+
+    <!--Footer-->
+    <div th:insert="fragments/footer.html :: footer"> </div>
 </body>
 </html>
+
