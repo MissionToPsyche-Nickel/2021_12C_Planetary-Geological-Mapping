@@ -9,7 +9,7 @@
 </head>
 <body>
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
 
     <div th:if="${param.error}">
         Invalid username and password.
@@ -26,5 +26,7 @@
         <div><input type="submit" value="Register"/></div>
     </form>
 
+    <!--Footer-->
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>

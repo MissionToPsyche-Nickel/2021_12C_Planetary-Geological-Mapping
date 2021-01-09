@@ -9,13 +9,16 @@
 <body>
 
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
 
     <div class="content-maps">
-        <h1>Select a Map to View.</h1>
-        <p><a th:href="@{/moon}">Earth's Moon</a></p>
-        <p><a th:href="@{/mars}">Mars</a></p>
-        <p><a th:href="@{/psyche}">16-Psyche</a></p>
+        <h1 class="psyche-headline">Select a Map to View.</h1>
+        <p class="psyche-body"><a th:href="@{/moon}">Earth's Moon</a></p>
+        <p class="psyche-body"><a th:href="@{/mars}">Mars</a></p>
+        <p class="psyche-body"><a th:href="@{/psyche}">16-Psyche</a></p>
     </div>
+
+    <!--Footer-->
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>

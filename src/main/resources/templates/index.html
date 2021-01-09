@@ -10,19 +10,18 @@
 <body>
 
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
 
     <!--Content-->
     <div class="content-index">
         <br />
-        <h1 class="title">About Psyche</h1>
-        <p class="facts">Some filler text</p>
-        <p class="filler"> </p>
+        <h1 class="title psyche-headline">About Psyche</h1>
+        <p class="facts psyche-body">Some filler text</p>
         <img class="psyche-img" src="images/Psyche_home.png" alt="16-Psyche"/>
     </div>
 
     <!--Footer-->
-    <div th:insert="fragments/footer.html :: footer"> </div>
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>
 

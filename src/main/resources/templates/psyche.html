@@ -8,11 +8,14 @@
 </head>
 <body>
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
 
     <div class="content-maps">
-        <h1>Construction Zone</h1>
-        <h3>This is still under construction! Come back when it is finished!</h3>
+        <h1 class="psyche-headline">Construction Zone</h1>
+        <p class="psyche-body">This is still under construction! Come back when it is finished!</p>
     </div>
+
+    <!--Footer-->
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>

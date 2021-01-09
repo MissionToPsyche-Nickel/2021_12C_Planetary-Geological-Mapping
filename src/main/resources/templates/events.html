@@ -10,7 +10,7 @@
 <body>
 
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
 
     <!--Content-->
     <div class="content-events">
@@ -19,7 +19,7 @@
     </div>
 
     <!--Footer-->
-    <div th:insert="fragments/footer.html :: footer"> </div>
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>
 

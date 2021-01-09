@@ -8,12 +8,15 @@
 </head>
 <body>
     <!--Navigation-->
-    <div th:insert="fragments/header.html :: nav"> </div>
+    <div th:replace="fragments/header.html :: nav"> </div>
     <div class="content-maps">
-        <h1>Earth's Moon</h1>
+        <h1 class="psyche-headline">Earth's Moon</h1>
         <div class="viewport">
             <img th:src="@{images/Moon.svg}" class="img-map">
         </div>
     </div>
+
+    <!--Footer-->
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>
