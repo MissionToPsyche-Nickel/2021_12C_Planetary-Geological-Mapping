@@ -11,12 +11,10 @@
       * EX. spring.datasource.username=(YOUR USERNAME HERE)
     * Finally, you will need to change the spring.datasource.password= to the password you created
       * EX. spring.datasource.password=(YOUR PASSWORD HERE)
+    * The default port for localhost is 8080, you can change the settings of this site to use the default by adjusting server.port=9090
+      * EX. server.port=8080
     
   * Testing the first page
     * First thing is to run the program
     * Second thing is open a webbrowser
-    * Finally go to http://localhost:9090/planetarymap/
-    * You should see some text and a couple links.
-  
-
-  
+    * Finally go to http://localhost:9090/
