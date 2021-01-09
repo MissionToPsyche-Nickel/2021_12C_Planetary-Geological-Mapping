@@ -17,5 +17,5 @@
   * Testing the first page
     * First thing is to run the program
     * Second thing is open a webbrowser
-    * Finally go to http://localhost:YOUR PORT NUMBER/
+    * Finally go to http://localhost:YOUR-PORT-NUMBER/
     * If you use port 8080 you do not need to specify your port number
