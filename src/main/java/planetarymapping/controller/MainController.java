@@ -9,7 +9,7 @@
 
 package planetarymapping.controller;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +23,7 @@ import planetarymapping.model.Users;
 public class MainController {
 
     //Password encoder declaration
-    private PasswordEncoder passwordEncoder;
+    //private PasswordEncoder passwordEncoder;
 
     //User repository declaration
     private UserRepository userRepository;
@@ -32,8 +32,9 @@ public class MainController {
     private AuthoritiesRepository authoritiesRepository;
 
     //Constructor injecting the needed fields
-    public MainController(PasswordEncoder passwordEncoder, UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
-        this.passwordEncoder = passwordEncoder;
+    public MainController( UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+        /*PasswordEncoder passwordEncoder,
+        this.passwordEncoder = passwordEncoder;*/
         this.userRepository = userRepository;
         this.authoritiesRepository = authoritiesRepository;
     }
@@ -41,13 +42,13 @@ public class MainController {
     //Displaying home view at root
     @GetMapping("/")
     public String althome(){
-        return "home";
+        return "index";
     }
 
     //Displaying home view at /home
     @GetMapping("/home")
     public String home(){
-        return "home";
+        return "index";
     }
 
     //Displaying the login view
@@ -65,7 +66,8 @@ public class MainController {
     //Registering new users
     @PostMapping("/register")
     public String doRegister(@RequestParam String userName, String password, String auth) {
-        String encodedPassword  = passwordEncoder.encode(password);
+
+        String encodedPassword  = password;//passwordEncoder.encode(password);
 
         Users user = new Users(userName);
         user.setEnabled(Boolean.TRUE);
@@ -76,5 +78,40 @@ public class MainController {
         authoritiesRepository.save(authorities);
 
         return "login";
+    }
+
+    @GetMapping("/events")
+    public String events(){
+        return "events";
+    }
+
+    //Displaying the map view
+    @GetMapping("/maps")
+    public String map(){
+        return "maps";
+    }
+
+    //Displaying the map view
+    @GetMapping("/moon")
+    public String moon(){
+        return "moon";
+    }
+
+    //Displaying the map view
+    @GetMapping("/mars")
+    public String mars(){
+        return "mars";
+    }
+
+    //Displaying the map view
+    @GetMapping("/psyche")
+    public String psyche(){
+        return "psyche";
+    }
+
+    //Displaying user page
+    @GetMapping("/user")
+    public String hello(){
+        return "user";
     }
 }

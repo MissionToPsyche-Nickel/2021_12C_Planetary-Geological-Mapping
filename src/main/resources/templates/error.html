@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Error!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<h1>Oh No!</h1>
-<h3>There was an error, please return to the home page.</h3>
-<form th:action="@{/home}" method="Get">
-    <input type="submit" value="Take Me Home!"/>
-</form>
+    <!--Navigation-->
+    <div th:replace="fragments/header.html :: nav"> </div>
+
+    <!--Content-->
+    <h1 class="psyche-title">Oh No!</h1>
+    <h3>There was an error, please return to the home page.</h3>
+
+    <!--Footer-->
+    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>

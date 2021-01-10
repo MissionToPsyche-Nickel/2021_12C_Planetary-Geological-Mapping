@@ -8,7 +8,7 @@
 
 package planetarymapping.controller;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import planetarymapping.Repository.AuthoritiesRepository;
@@ -19,7 +19,7 @@ import planetarymapping.Repository.UserRepository;
 public class UserController {
 
         //Password encoder declaration
-        private PasswordEncoder passwordEncoder;
+       // private PasswordEncoder passwordEncoder;
 
         //User repository declaration
         private UserRepository userRepository;
@@ -28,17 +28,14 @@ public class UserController {
         private AuthoritiesRepository authoritiesRepository;
 
         //Constructor injecting the needed fields
-        UserController(PasswordEncoder passwordEncoder, UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
-                this.passwordEncoder = passwordEncoder;
+        UserController( UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
+                /*PasswordEncoder passwordEncoder,
+                this.passwordEncoder = passwordEncoder;*/
                 this.userRepository = userRepository;
                 this.authoritiesRepository = authoritiesRepository;
         }
 
-        //Displaying user page
-        @GetMapping("/")
-        public String hello(){
-                return "user";
-        }
+
 
 
 }

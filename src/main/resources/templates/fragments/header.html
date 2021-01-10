@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" >
+<head th:fragment="headerFiles">
+</head>
+<body>
+<div th:fragment="nav">
+
+    <nav class="navbar navbar-expand-sm navbar-light">
+
+        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" class="navbar-brand"><img src="images/Psyche_logo.jpg" alt="Psyche logo" width="100" height="100"> Psyche </a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/events}">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/maps}">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/user/}">Login</a>
+            </li>
+        </ul>
+
+    </nav></div>
+
+</body>
