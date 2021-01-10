@@ -24,14 +24,22 @@ body
 .content-index{
     display: grid;
     grid-template-areas:
-            'title space space'
+            'title craft space'
             'text image image'
             'text image image';
 }
 
 .psyche-img{
     grid-area: image;
-    padding-left: 30%;
+    margin-left: 47.5%;
+    transform: rotate(90deg);
+}
+.psyche-craft-img{
+    width: 100px;
+    height: 100px;
+    margin-left: 50%;
+    opacity: 0.5;
+    grid-area: craft;
 }
 
 .title{
