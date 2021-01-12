@@ -31,21 +31,24 @@ body
 
 .psyche-img{
     grid-area: image;
-    margin-left: 47.5%;
+    overflow: hidden;
+    margin-left: 34.2%;
     transform: rotate(90deg);
 }
 .psyche-craft-img{
+    grid-area: craft;
     width: 100px;
     height: 100px;
     margin-left: 50%;
     opacity: 0.5;
-    grid-area: craft;
+
 }
 
 .title{
     grid-area: title;
     padding-left: 10%;
 }
+
 
 .facts{
     grid-area: text;
@@ -70,7 +73,34 @@ body
 
 /*Events.html*/
 .content-events{
-    padding-left: 3%;
+    /*padding-left: 3%;*/
+    display: grid;
+    grid-template-areas:
+            'space space title'
+            'image image text'
+            'image image text';
+    overflow: hidden;
+}
+
+.events-title{
+    grid-area: title;
+    padding-right: 10%;
+    margin-left: -20%;
+}
+
+.events{
+    grid-area: text;
+    padding-right: 10%;
+    margin-left: -18%;
+}
+
+.psyche-launch-img{
+    grid-area: image;
+    transform: rotate(45deg);
+    width: 100%;
+    margin-top: -11%;
+    margin-left: -10%;
+    overflow: hidden;
 }
 
 /*footer*/
