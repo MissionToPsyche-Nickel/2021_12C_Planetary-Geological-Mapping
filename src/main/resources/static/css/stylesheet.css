@@ -36,6 +36,7 @@ ul#navbar-nav li a:hover{
             'title . craft'
             'text . image'
             'text . image';
+    position: relative;
 }
 
 .psyche-img{
@@ -92,6 +93,7 @@ ul#navbar-nav li a:hover{
     grid-template-rows: 100px 100px 620px;
     grid-template-columns: 1.3fr .5fr;
     overflow: hidden;
+    position: relative;
 }
 
 .events-title{
@@ -113,8 +115,9 @@ ul#navbar-nav li a:hover{
     transform: rotate(45deg);
     width: 80%;
     margin-top: -11%;
-    margin-left: -10%;
+    border-radius: 50%;
     overflow: hidden;
+    position: absolute;
 }
 
 /*footer*/
