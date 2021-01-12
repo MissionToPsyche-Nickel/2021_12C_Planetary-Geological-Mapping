@@ -4,6 +4,15 @@ body
     font-family: sans-serif;
 }
 
+/*Navbar*/
+.nav-link{
+    font-weight: bold;
+}
+ul#navbar-nav li a:hover{
+    color: red;
+}
+
+
 .psyche-title{
     color: #A53F5B;
     font-size: 21px;
@@ -24,22 +33,23 @@ body
 .content-index{
     display: grid;
     grid-template-areas:
-            'title craft space'
-            'text image image'
-            'text image image';
+            'title . craft'
+            'text . image'
+            'text . image';
 }
 
 .psyche-img{
     grid-area: image;
+    position: relative;
     overflow: hidden;
-    margin-left: 34.2%;
+    margin-left: 35%;
     transform: rotate(90deg);
+
 }
 .psyche-craft-img{
     grid-area: craft;
     width: 100px;
     height: 100px;
-    margin-left: 50%;
     opacity: 0.5;
 
 }
@@ -76,28 +86,32 @@ body
     /*padding-left: 3%;*/
     display: grid;
     grid-template-areas:
-            'space space title'
-            'image image text'
-            'image image text';
+            'space title'
+            'image text'
+            'image text';
+    grid-template-rows: 100px 100px 620px;
+    grid-template-columns: 1.3fr .5fr;
     overflow: hidden;
 }
 
 .events-title{
     grid-area: title;
     padding-right: 10%;
-    margin-left: -20%;
+    margin-left: -30%;
+    margin-right: 20%;
 }
 
 .events{
     grid-area: text;
     padding-right: 10%;
-    margin-left: -18%;
+    margin-right: 20%;
+    margin-left: -28%;
 }
 
 .psyche-launch-img{
     grid-area: image;
     transform: rotate(45deg);
-    width: 100%;
+    width: 80%;
     margin-top: -11%;
     margin-left: -10%;
     overflow: hidden;
