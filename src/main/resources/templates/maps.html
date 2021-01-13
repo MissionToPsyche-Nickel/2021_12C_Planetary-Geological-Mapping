@@ -11,11 +11,12 @@
     <!--Navigation-->
     <div th:replace="fragments/header.html :: nav"> </div>
 
+
     <div class="content-maps">
         <h1 class="psyche-headline">Select a Map to View.</h1>
-        <p class="psyche-body"><a th:href="@{/moon}">Earth's Moon</a></p>
-        <p class="psyche-body"><a th:href="@{/mars}">Mars</a></p>
-        <p class="psyche-body"><a th:href="@{/psyche}">16-Psyche</a></p>
+        <p class="psyche-body"><a class="moon" th:href="@{/moon}">Earth's Moon <img class="moon-img" src="images/moon.png" alt="moon" height="100" width="100"></a></p>
+        <p class="psyche-body"><a class="mars" th:href="@{/mars}">Mars <img class="mars-img" src="images/mars_planet.png" alt="mars" height="100" width="100"></a></p>
+        <p class="psyche-body"><a class="psyche" th:href="@{/psyche}">16-Psyche <img class="psyche-asteroid-img" src="images/16Psyche.png" alt="psyche asteroid" height="100" width="100"></a></p>
     </div>
 
     <!--Footer-->

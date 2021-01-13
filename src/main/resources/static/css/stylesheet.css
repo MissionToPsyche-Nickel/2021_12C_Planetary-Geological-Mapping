@@ -76,11 +76,27 @@ ul#navbar-nav li a:hover{
     overflow: hidden;
     horiz-align: center;
 }
-
 .content-maps > .img-map{
     width:100%;
     border: 2px solid black;
 }
+.content-maps a{
+    color: #592651;
+    text-decoration: none;
+}
+.content-maps a:hover{
+    transition: color 0.5s;
+    color: #a53f5b;
+}
+.content-maps img{
+    opacity: 0.7;
+}
+.content-maps a:hover img{
+    rotation: 45deg;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+
 
 /*Events.html*/
 .content-events{
@@ -114,6 +130,7 @@ ul#navbar-nav li a:hover{
     grid-area: image;
     transform: rotate(45deg);
     width: 80%;
+    margin-left: -5%;
     margin-top: -11%;
     border-radius: 50%;
     overflow: hidden;
