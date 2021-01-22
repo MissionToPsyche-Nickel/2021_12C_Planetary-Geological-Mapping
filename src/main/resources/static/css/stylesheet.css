@@ -8,9 +8,56 @@ body
 .nav-link{
     font-weight: bold;
 }
-ul#navbar-nav li a:hover{
+#navbar-nav li a:hover{
     color: red;
 }
+#nav .links-wrapper{
+    top: 30px;
+    right: 10px;
+    float: right;
+    border: 1px #ef5966;
+
+}
+#psyche-title{
+    font-weight: bold;
+}
+#psyche-title:hover{
+    color: #592651;
+}
+.link{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    padding: 3px;
+    text-decoration: none;
+    color: black;
+}
+#twitter-link{
+    top: 30px;
+}
+#insta-link{
+    top: 60px;
+}
+.link:hover{
+    font-weight: bold;
+    color: #ef5966;
+}
+.link-imgs{
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+            transition:         transform .8s ease-in-out;
+}
+.link:hover .link-imgs{
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+
+
+
+
+
+
+
 
 
 .psyche-title{
@@ -36,14 +83,14 @@ ul#navbar-nav li a:hover{
             'title . craft'
             'text . image'
             'text . image';
-    position: relative;
+    position: absolute;
 }
 
 .psyche-img{
     grid-area: image;
     position: relative;
     overflow: hidden;
-    margin-left: 35%;
+    margin-left: 36%;
     transform: rotate(90deg);
 
 }
@@ -100,15 +147,13 @@ ul#navbar-nav li a:hover{
 
 /*Events.html*/
 .content-events{
-    /*padding-left: 3%;*/
     display: grid;
     grid-template-areas:
-            'space title'
+            'image title'
             'image text'
-            'image text';
-    grid-template-rows: 100px 100px 620px;
-    grid-template-columns: 1.3fr .5fr;
-    overflow: hidden;
+            'image space';
+    grid-template-rows: 100px 100px 400px;
+    grid-template-columns: 2fr 1fr;
     position: relative;
 }
 
@@ -128,13 +173,20 @@ ul#navbar-nav li a:hover{
 
 .psyche-launch-img{
     grid-area: image;
-    transform: rotate(45deg);
-    width: 80%;
-    margin-left: -5%;
-    margin-top: -11%;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
+    width: 70%;
+    max-width: 100%;
+
+    /*This was testing*/
+
+
+    /*height: 1vh;*/
+    /*object-fit: contain;*/
+    /*transform: rotate(45deg);*/
+    /*height: auto;*/
+    /*margin-left: -9%;*/
+    /*margin-top: -10%;*/
+    /*overflow: scroll;*/
+    /*position: relative;*/
 }
 
 /*footer*/

@@ -2,6 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"  lang="en">
 <head>
     <title>Planetary Mapping</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -16,13 +17,33 @@
     <div class="content-index">
         <br />
         <h1 class="title psyche-headline">About Psyche</h1>
-        <p class="facts psyche-body">Some filler text</p>
+        <p class="facts psyche-body">
+            Psyche is the first space mission to visit an asteroid made of metal.<br>
+            This mission is led by Arizona State University
+        </p>
         <img class="psyche-craft-img" src="images/Psyche_spacecraft_model.png" alt="Psyche-spacecraft">
         <img class="psyche-img" src="images/Psyche_home.png" alt="16-Psyche"/>
     </div>
 
     <!--Footer-->
-    <div th:replace="fragments/footer.html :: footer"> </div>
+<!--    <div th:replace="fragments/footer.html :: footer"> </div>-->
 </body>
+
+
+<!--Refreshes page after resize to allow images to re-align-->
+<script>
+    jQuery(function ($){
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+
+        $(window).resize(function ()
+        {
+            if(windowWidth !== $(window).width() || windowHeight !== $(window).height())
+            {
+                location.reload();
+            }
+        })
+    })
+</script>
 </html>
 
