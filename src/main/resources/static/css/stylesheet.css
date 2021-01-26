@@ -51,15 +51,6 @@ body
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
 }
-
-
-
-
-
-
-
-
-
 .psyche-title{
     color: #A53F5B;
     font-size: 21px;
@@ -80,17 +71,18 @@ body
 .content-index{
     display: grid;
     grid-template-areas:
-            'title . craft'
-            'text . image'
-            'text . image';
-    position: absolute;
+            'title craft'
+            'text image'
+            'text image'
+            'footer footer';
+    grid-template-rows: 100px 100px 800px;
+    grid-template-columns: 1fr 1fr;
 }
-
 .psyche-img{
     grid-area: image;
     position: relative;
     overflow: hidden;
-    margin-left: 36%;
+    margin-left: 26%;
     transform: rotate(90deg);
 
 }
@@ -101,17 +93,16 @@ body
     opacity: 0.5;
 
 }
-
 .title{
     grid-area: title;
     padding-left: 10%;
 }
-
-
 .facts{
     grid-area: text;
     padding-left: 12%;
 }
+
+
 
 /*maps.html, moon.html, mars.html, psyche.html*/
 .content-maps{
@@ -143,37 +134,43 @@ body
     transition: opacity 0.3s;
     opacity: 1;
 }
+.controls{
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 2%;
+}
+
 
 
 /*Events.html*/
 .content-events{
     display: grid;
     grid-template-areas:
-            'image title'
-            'image text'
-            'image space';
-    grid-template-rows: 100px 100px 400px;
-    grid-template-columns: 2fr 1fr;
+            'title image'
+            'text image'
+            'space image'
+            'footer footer';
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 1fr .8fr;
     position: relative;
 }
 
 .events-title{
     grid-area: title;
-    padding-right: 10%;
-    margin-left: -30%;
-    margin-right: 20%;
+    padding-left: 10%;
+    /*margin-left: -30%;*/
+    /*margin-right: 20%;*/
 }
 
 .events{
     grid-area: text;
-    padding-right: 10%;
-    margin-right: 20%;
-    margin-left: -28%;
+    padding-left: 12%;
+    /*margin-right: 20%;*/
+    /*margin-left: -28%;*/
 }
 
 .psyche-launch-img{
     grid-area: image;
-    width: 70%;
     max-width: 100%;
 
     /*This was testing*/
@@ -191,7 +188,8 @@ body
 
 /*footer*/
 .footer > p {
-    padding-top: 10%;
-    padding-left: 3%;
+    /*padding-top: 10%;*/
+    /*padding-left: 5%;*/
+    padding: 20px;
     font-size: 50%;
 }

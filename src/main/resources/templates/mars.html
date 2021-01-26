@@ -13,13 +13,14 @@
     <div class="content-maps">
         <h1 class="psyche-headline">Mars</h1>
 
-        <div class="mars-controls">
-
-        </div>
+        <div th:replace="fragments/mapcontrols.html :: controls"> </div>
 
         <div class="viewport">
             <img th:src="@{images/Mars.svg}" class="img-map">
+
         </div>
+
+
     </div>
 
     <!--Footer-->
