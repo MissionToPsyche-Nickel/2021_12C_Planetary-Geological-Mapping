@@ -118,6 +118,15 @@ body
     width:100%;
     border: 2px solid black;
 }
+
+/*Testing the mapping controls*/
+path:hover, circle:hover{
+    stroke: #002868 !important;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    fill: #002868;
+    cursor: pointer;
+}
 .content-maps a{
     color: #592651;
     text-decoration: none;
@@ -172,6 +181,7 @@ body
 .psyche-launch-img{
     grid-area: image;
     max-width: 100%;
+    padding: 3px;
 
     /*This was testing*/
 

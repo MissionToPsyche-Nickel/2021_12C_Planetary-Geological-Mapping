@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,7 @@
 </head>
 <body>
 
+
     <!--Navigation-->
     <div th:replace="fragments/header.html :: nav"> </div>
     <div class="content-maps">
@@ -16,8 +18,8 @@
         <div th:replace="fragments/mapcontrols.html :: controls"> </div>
 
         <div class="viewport">
-            <img th:src="@{images/Mars.svg}" class="img-map">
-
+            <object type="image/svg+xml" data="images/Mars.svg" id="mars" class="img-map"> Mars Map</object>
+<!--            <img th:src="@{images/Mars.svg}" id="mars" class="img-map">-->
         </div>
 
 
