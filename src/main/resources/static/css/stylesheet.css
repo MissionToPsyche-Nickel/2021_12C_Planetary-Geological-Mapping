@@ -114,6 +114,10 @@ body
     overflow: hidden;
     horiz-align: center;
 }
+
+.content-maps > #map {
+    width: 100%;
+}
 .content-maps > .img-map{
     width:100%;
     border: 2px solid black;
