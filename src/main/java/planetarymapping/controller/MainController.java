@@ -9,42 +9,11 @@
 
 package planetarymapping.controller;
 
-//import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.MapRepository;
-import planetarymapping.model.Maps;
-import planetarymapping.service.MapService;
 
 @Controller
 public class MainController {
-
-    //Password encoder declaration
-    //private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private MapRepository mapRepository;
-
-    @Autowired
-    private MapService mapService;
-
-    //User repository declaration
-//    @Autowired
-//    private UserRepository userRepository;
-//
-//    //User Authorities repository declaration
-//    @Autowired
-//    private AuthoritiesRepository authoritiesRepository;
-
-    //Constructor injecting the needed fields
-//    public MainController( UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
-//        /*PasswordEncoder passwordEncoder,
-//        this.passwordEncoder = passwordEncoder;*/
-//        this.userRepository = userRepository;
-//        this.authoritiesRepository = authoritiesRepository;
-//    }
 
     //Displaying home view at root
     @GetMapping("/")
