@@ -9,35 +9,11 @@
 
 package planetarymapping.controller;
 
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import planetarymapping.Repository.AuthoritiesRepository;
-import planetarymapping.Repository.UserRepository;
-import planetarymapping.model.UserAuthorities;
-import planetarymapping.model.Users;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
-
-    //Password encoder declaration
-    //private PasswordEncoder passwordEncoder;
-
-    //User repository declaration
-    private UserRepository userRepository;
-
-    //User Authorities repository declaration
-    private AuthoritiesRepository authoritiesRepository;
-
-    //Constructor injecting the needed fields
-    public MainController( UserRepository userRepository, AuthoritiesRepository authoritiesRepository) {
-        /*PasswordEncoder passwordEncoder,
-        this.passwordEncoder = passwordEncoder;*/
-        this.userRepository = userRepository;
-        this.authoritiesRepository = authoritiesRepository;
-    }
 
     //Displaying home view at root
     @GetMapping("/")
@@ -51,67 +27,17 @@ public class MainController {
         return "index";
     }
 
-    //Displaying the login view
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
-    //Displaying register view
-    @GetMapping("/register")
-    public String register(){
-        return "register";
-    }
-
-    //Registering new users
-    @PostMapping("/register")
-    public String doRegister(@RequestParam String userName, String password, String auth) {
-
-        String encodedPassword  = password;//passwordEncoder.encode(password);
-
-        Users user = new Users(userName);
-        user.setEnabled(Boolean.TRUE);
-        user.setPassword(encodedPassword);
-        userRepository.save(user);
-        Long id = user.getId();
-        UserAuthorities authorities = new UserAuthorities(id, auth);
-        authoritiesRepository.save(authorities);
-
-        return "login";
-    }
-
-    @GetMapping("/events")
+    @GetMapping("/geologic-mapping")
     public String events(){
-        return "events";
+        return "geologic-mapping";
     }
 
-    //Displaying the map view
-    @GetMapping("/maps")
-    public String map(){
-        return "maps";
-    }
+    @RequestMapping("/map/{mapName}")
+    public String viewFromDbTemplate(@PathVariable String mapName) {
 
-    //Displaying the map view
-    @GetMapping("/moon")
-    public String moon(){
-        return "moon";
-    }
-
-    //Displaying the map view
-    @GetMapping("/mars")
-    public String mars(){
-        return "mars";
-    }
-
-    //Displaying the map view
-    @GetMapping("/psyche")
-    public String psyche(){
-        return "psyche";
-    }
-
-    //Displaying user page
-    @GetMapping("/user")
-    public String hello(){
-        return "user";
+        if (mapName.equals("nav")) {
+            return "maps";
+        }
+        return "db-map-" + mapName;
     }
 }
