@@ -114,7 +114,9 @@ body
     overflow: hidden;
     horiz-align: center;
 }
-
+svg{
+    border: 1px solid black;
+}
 .content-maps > #map {
     width: 100%;
 }
@@ -149,13 +151,13 @@ path:hover, circle:hover{
 }
 .controls{
     position: absolute;
-    margin-left: 85%;
+    margin-left: 60%;
     margin-top: 2%;
 }
 
 
 
-/*Events.html*/
+/*geological-mapping.html*/
 .content-events{
     display: grid;
     grid-template-areas:
