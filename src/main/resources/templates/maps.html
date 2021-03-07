@@ -5,6 +5,7 @@
     <title>Available Maps</title>
     <link rel="stylesheet" th:href="@{/css/stylesheet.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -17,7 +18,12 @@
         <p class="psyche-body"><a class="moon" th:href="@{/map/moon}">Earth's Moon <img class="moon-img" th:src="@{/images/moon.png}" alt="moon" height="100" width="100"></a></p>
         <p class="psyche-body"><a class="mars" th:href="@{/map/mars}">Mars <img class="mars-img" th:src="@{/images/mars_planet.png}" alt="mars" height="100" width="100"></a></p>
         <p class="psyche-body"><a class="psyche" th:href="@{/map/psyche}">16-Psyche <img class="psyche-asteroid-img" th:src="@{/images/16Psyche.png}" alt="psyche asteroid" height="100" width="100"></a></p>
+
+
+
+
     </div>
+<!--    <iframe src="https://www.arcgis.com/home/webscene/viewer.html?webscene=212bc499a0ed4ce8bc9a864561a4551f&viewpoint=cam:-83.61021288,-13.9875749,21864397.678;171.701,0.113" width="100%" height="1080"></iframe>-->
 
     <!--Footer-->
     <div th:replace="fragments/footer.html :: footer"> </div>

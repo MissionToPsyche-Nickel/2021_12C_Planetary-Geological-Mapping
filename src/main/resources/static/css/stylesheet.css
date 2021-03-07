@@ -2,11 +2,21 @@
 body
 {
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 
 /*Navbar*/
-.nav-link{
+.navbar-nav{
     font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar-text{
+    font-weight: bold;
+    font-size: 20px;
+}
+#psyche-title{
+    text-decoration: none;
 }
 #navbar-nav li a:hover{
     color: red;
@@ -18,9 +28,9 @@ body
     border: 1px #ef5966;
 
 }
-#psyche-title{
-    font-weight: bold;
-}
+/*#psyche-title{*/
+/*    font-weight: bold;*/
+/*}*/
 #psyche-title:hover{
     color: #592651;
 }
@@ -106,7 +116,11 @@ body
 
 /*maps.html, moon.html, mars.html, psyche.html*/
 .content-maps{
-    padding-left: 3%;
+    /*padding-left: 3%;*/
+}
+.viewport{
+    display: flex;
+    justify-content: center;
 }
 .content-maps > .viewport {
     width: 100%;
@@ -114,9 +128,9 @@ body
     overflow: hidden;
     horiz-align: center;
 }
-svg{
-    border: 1px solid black;
-}
+/*svg{*/
+/*    border: 1px solid black;*/
+/*}*/
 .content-maps > #map {
     width: 100%;
 }
@@ -126,13 +140,13 @@ svg{
 }
 
 /*Testing the mapping controls*/
-path:hover, circle:hover{
-    stroke: #002868 !important;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    fill: #002868;
-    cursor: pointer;
-}
+/*path:hover, circle:hover{*/
+/*    stroke: #002868 !important;*/
+/*    stroke-width: 2px;*/
+/*    stroke-linejoin: round;*/
+/*    fill: #002868;*/
+/*    cursor: pointer;*/
+/*}*/
 .content-maps a{
     color: #592651;
     text-decoration: none;
@@ -168,20 +182,17 @@ path:hover, circle:hover{
     grid-template-rows: 100px 100px;
     grid-template-columns: 1fr .8fr;
     position: relative;
+    z-index: 0;
 }
 
 .events-title{
     grid-area: title;
     padding-left: 10%;
-    /*margin-left: -30%;*/
-    /*margin-right: 20%;*/
 }
 
 .events{
     grid-area: text;
     padding-left: 12%;
-    /*margin-right: 20%;*/
-    /*margin-left: -28%;*/
 }
 
 .psyche-launch-img{
@@ -202,6 +213,101 @@ path:hover, circle:hover{
     /*position: relative;*/
 }
 
+/*For side slide bar*/
+.side-desc{
+    position: fixed;
+    padding: 40px;
+    right: -400px;
+    top: 150px;
+    bottom: 0;
+    background: #333;
+    width: 400px;
+    font-size: 15px;
+    color: white;
+    z-index: 0;
+    transition: 0.7s ease-in-out;
+    border-radius: 5px;
+}
+/*Mars Slider*/
+.toggle-title{
+    transform: rotate(270deg);
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 100px;
+    right: -40px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+    text-decoration: none;
+}
+.toggle{
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 200px;
+    right: 20px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+}
+
+.toggle-title:hover,.toggle:hover,.toggle-moon-title:hover, .moon-toggle:hover{
+    color:#ef5966;
+}
+#toggler{
+    display: none;
+}
+#toggler:checked + .page-wrap .side-desc{
+
+    right: 0;
+}
+#toggler:checked + .page-wrap .toggle{
+
+    right: 400px;
+}
+#toggler:checked + .page-wrap .toggle-title{
+
+    right: 340px;
+}
+
+
+/*Moon Slider*/
+.toggle-moon-title{
+    transform: rotate(270deg);
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 100px;
+    right: -50px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+    text-decoration: none;
+}
+.moon-toggle{
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 210px;
+    right: 20px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+}
+#toggler:checked + .page-wrap .toggle-moon-title{
+
+    right: 330px;
+}
+#toggler:checked + .page-wrap .moon-toggle{
+
+    right: 400px;
+}
+
 /*footer*/
 .footer > p {
     /*padding-top: 10%;*/
@@ -209,3 +315,4 @@ path:hover, circle:hover{
     padding: 20px;
     font-size: 50%;
 }
+

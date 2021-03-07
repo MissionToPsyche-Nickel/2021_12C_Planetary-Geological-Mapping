@@ -5,12 +5,12 @@
 <body>
 <div id="nav" th:fragment="nav">
 
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav class="navbar navbar-expand-md navbar-light">
 
-        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" class="navbar-brand" id="psyche-title"><img id th:src="@{/images/Psyche_logo.jpg}" alt="Psyche logo" width="100" height="100"> Psyche </a>
-
+        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" class="navbar-brand"><img id th:src="@{/images/Psyche_logo.jpg}" alt="Psyche logo" width="100" height="100"></a>
+        <span  class="navbar-text"><a href="https://psyche.asu.edu/" target="_blank" rel="noopener" id="psyche-title">Psyche</a></span>
         <ul id="navbar-nav" class="navbar-nav">
-            <li class="active">
+            <li class="navbar-item">
                 <a class="nav-link" th:href="@{/}">&nbsp Home</a>
             </li>
             <li>
@@ -21,8 +21,8 @@
             </li>
         </ul>
 
-        <a href="https://www.instagram.com/missiontopsyche/?hl=en" target="_blank" rel="noopener" class="link" id="twitter-link"> Twitter <img class="link-imgs" th:src="@{/images/twitter.png}" alt="twitterlogo" width="25" height="25"></a>
-        <a href="https://twitter.com/missiontopsyche?lang=en" target="_blank" rel="noopener" class="link" id="insta-link"> Instagram <img class="link-imgs" th:src="@{/images/instagram.png}" alt="instalogo" width="25" height="25"></a>
+        <a href="https://twitter.com/missiontopsyche?lang=en" target="_blank" rel="noopener" class="link" id="twitter-link"> Twitter <img class="link-imgs" th:src="@{/images/twitter.png}" alt="twitterlogo" width="25" height="25"></a>
+        <a href="https://www.instagram.com/missiontopsyche/?hl=en" target="_blank" rel="noopener" class="link" id="insta-link"> Instagram <img class="link-imgs" th:src="@{/images/instagram.png}" alt="instalogo" width="25" height="25"></a>
 
     </nav>
 
