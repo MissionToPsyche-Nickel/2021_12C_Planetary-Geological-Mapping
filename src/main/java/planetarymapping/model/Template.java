@@ -1,7 +1,5 @@
 package planetarymapping.model;
 
-import jdk.jfr.DataAmount;
-
 import javax.persistence.*;
 
 @Entity

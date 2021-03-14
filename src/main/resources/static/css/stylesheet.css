@@ -68,16 +68,15 @@ body
 }
 
 /*index.html*/
-.content-index{
-    display: grid;
-    grid-template-areas:
-            'title craft'
-            'text image'
-            'text image'
-            'footer footer';
-    grid-template-rows: 100px 100px 800px;
-    grid-template-columns: 1fr 1fr;
+
+.d-block{
+    max-height: 800px;
 }
+
+.carousel-caption{
+    background: rgba(60,60,60,0.50);
+}
+
 .psyche-img{
     grid-area: image;
     position: relative;
@@ -110,7 +109,7 @@ body
 }
 .content-maps > .viewport {
     width: 100%;
-    max-height: 10%;
+    max-height: 1250px;
     overflow: hidden;
     horiz-align: center;
 }

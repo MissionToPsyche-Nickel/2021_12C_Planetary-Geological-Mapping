@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Available Maps</title>
-    <link rel="stylesheet" th:href="@{/css/stylesheet.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Map Library</title>
 </head>
 <body>
 
-    <!--Navigation-->
-    <div th:replace="fragments/header.html :: nav"> </div>
-
-
-    <div class="content-maps">
+    <section layout:fragment="content">
         <h1 class="psyche-headline">Select a Map to View.</h1>
         <p class="psyche-body"><a class="moon" th:href="@{/map/moon}">Earth's Moon <img class="moon-img" th:src="@{/images/moon.png}" alt="moon" height="100" width="100"></a></p>
         <p class="psyche-body"><a class="mars" th:href="@{/map/mars}">Mars <img class="mars-img" th:src="@{/images/mars_planet.png}" alt="mars" height="100" width="100"></a></p>
         <p class="psyche-body"><a class="psyche" th:href="@{/map/psyche}">16-Psyche <img class="psyche-asteroid-img" th:src="@{/images/16Psyche.png}" alt="psyche asteroid" height="100" width="100"></a></p>
-    </div>
+    </section>
 
-    <!--Footer-->
-    <div th:replace="fragments/footer.html :: footer"> </div>
 </body>
 </html>

@@ -9,14 +9,23 @@
 
 package planetarymapping.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import planetarymapping.Repository.SlideRepository;
+import planetarymapping.model.Slide;
+
+import java.util.List;
 
 @Controller
 public class IndexController implements ErrorController {
 
     private static final String PATH = "/error";
+
+    @Autowired
+    SlideRepository slideRepo;
 
     @Override
     public String getErrorPath() {
@@ -24,8 +33,17 @@ public class IndexController implements ErrorController {
     }
 
     //Displaying the error view
-    @RequestMapping("/error")
+    @GetMapping("/error")
     public String error(){
-        return "error";
+        return "public/error";
+    }
+
+    //Displaying home view at root
+    @GetMapping("/")
+    public String home(Model model){
+
+        List<Slide> slides = slideRepo.findAll();
+        model.addAttribute("slides", slides);
+        return "public/index";
     }
 }

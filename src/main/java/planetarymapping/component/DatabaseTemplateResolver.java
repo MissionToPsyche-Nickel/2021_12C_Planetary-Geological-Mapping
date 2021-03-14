@@ -29,7 +29,6 @@ public class DatabaseTemplateResolver extends StringTemplateResolver {
                                                         String ownerTemplate,
                                                         String templateName,
                                                         Map<String, Object> templateResolutionAttributes) {
-//        logger.info("Loading template named {} from DB", templateName);
         Template template = templateRepository.findByTemplateName(templateName);
         if (template == null) {
             return null;
@@ -37,4 +36,6 @@ public class DatabaseTemplateResolver extends StringTemplateResolver {
         return super
                 .computeTemplateResource(configuration, ownerTemplate, template.getContent(), templateResolutionAttributes);
     }
+
+    
 }
