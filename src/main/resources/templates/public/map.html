@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title th:text="${map.title}"></title>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <script>
+        var src = document.getElementById('login-link').src;
+        document.getElementById('login-link').onclick = function togglePop(){
+            document.getElementById('popwin').classList.toggle("active");
+        }
+        function redirect(){
+            window.location.replace(src)
+        }
+        function changeArrow(){
+            if(document.getElementById('toggler').checked){
+                document.getElementById('arrow').classList.remove('icon-arrow-left');
+                document.getElementById('arrow').classList.add('icon-arrow-right');
+            }
+            else {
+                document.getElementById('arrow').classList.remove('icon-arrow-right');
+                document.getElementById('arrow').classList.add('icon-arrow-left');
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <section layout:fragment="content">
+
+        <label for="toggler" th:class="${map.sliderName + '-toggle'}"><i id="arrow" class="icon-arrow-left"></i>
+            <a th:class="${'toggle-title-' + map.sliderName}" th:text="${map.title}"></a>
+        </label>
+
+        <input onclick="changeArrow()" type="checkbox" id="toggler" name="" value="">
+        <div class="page-wrap">
+            <h1 th:text="${map.title}" class="psyche-headline"></h1>
+            <iframe th:if="${map.link}" width="1080" height="720" frameborder="0" scrolling="no" allowfullscreen th:src="${map.link}"></iframe>
+
+            <div class="side-desc">
+                <h2 th:text="${map.title}"></h2>
+                <p th:text="${map.facts}"></p>
+        </div>
+        </div>
+    </section>
+</body>
+</html>

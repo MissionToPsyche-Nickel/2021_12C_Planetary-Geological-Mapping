@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" >
-<head th:fragment="headerFiles">
-</head>
 <body>
 <div id="nav" th:fragment="nav">
 
@@ -17,29 +15,16 @@
                 <a class="nav-link" th:href="@{/geologic-mapping}">&nbsp Geologic Mapping</a>
             </li>
             <li>
-                <a class="nav-link" th:href="@{/map/nav}">&nbsp Map Library</a>
+                <a class="nav-link" th:href="@{/map}">&nbsp Map Library</a>
             </li>
             <li>
                 <a class="nav-link" th:href="@{/admin}">&nbsp Login</a>
             </li>
         </ul>
 
-        <a href="https://www.instagram.com/missiontopsyche/?hl=en" target="_blank" rel="noopener" class="link" id="twitter-link"> Twitter <img class="link-imgs" th:src="@{/images/twitter.png}" alt="twitterlogo" width="25" height="25"></a>
-        <a href="https://twitter.com/missiontopsyche?lang=en" target="_blank" rel="noopener" class="link" id="insta-link"> Instagram <img class="link-imgs" th:src="@{/images/instagram.png}" alt="instalogo" width="25" height="25"></a>
-
+        <a href="https://twitter.com/missiontopsyche?lang=en" target="_blank" rel="noopener" class="link" id="twitter-link"> Twitter <img class="link-imgs" th:src="@{/images/twitter.png}" alt="twitterlogo" width="25" height="25"></a>
+        <a href="https://www.instagram.com/missiontopsyche/?hl=en" target="_blank" rel="noopener" class="link" id="insta-link"> Instagram <img class="link-imgs" th:src="@{/images/instagram.png}" alt="instalogo" width="25" height="25"></a>
     </nav>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript">
-
-    $(document).ready(function (){
-        $('a').on('click', function ()
-        {
-            $(this).siblings().remove('active');
-            $(this).removeClass('active');
-        })
-    })
-</script>
-
 </body>

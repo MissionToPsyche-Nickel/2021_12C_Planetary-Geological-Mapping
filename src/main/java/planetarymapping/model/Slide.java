@@ -6,8 +6,7 @@ import javax.persistence.*;
 public class Slide {
 
     @Id
-    @SequenceGenerator(name="seq", initialValue=3, allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String image;
