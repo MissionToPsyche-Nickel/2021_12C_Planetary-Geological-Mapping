@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Map Library</title>
+</head>
+<body>
+
+    <section layout:fragment="content">
+        <h1 class="psyche-headline">Select a Map to View.</h1>
+            <table>
+                <tr th:each="map,iterStat : ${maps}">
+                    <td>
+                        <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
+                            <p th:text="${map.title}" class="psyche-body"> </p>
+                        </a>
+                    </td>
+                    <td>
+                        <p> &nbsp;&nbsp;&nbsp;</p>
+                    </td>
+                    <td>
+                        <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
+                            <img th:src="${map.image}" height="100" width="100">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+    </section>
+
+</body>
+</html>

@@ -1,22 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"  lang="en">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
-    <title>Planetary Mapping</title>
-
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-
+    <title>Geologic Mapping</title>
 </head>
+
 <body>
 
-
-    <!--Navigation-->
-    <div th:replace="fragments/header.html :: nav"> </div>
-    <div th:replace="fragments/redirectWindow.html :: redirect"> </div>
-        <!--Content-->
-    <div id="content-events" class="content-events">
+    <!--Content-->
+    <section layout:fragment="content">
         <h1 class="events-title psyche-headline">Planetary Geological Mapping</h1>
         <p class="events psyche-body">
             Geological mapping is the creation of a special map made to display various geological features.
@@ -26,12 +17,8 @@
             
         </p>
         <img class="psyche-launch-img" src="images/Camelback3DScene.jpg" alt="Psysche_Launch">
-    </div>
+    </section>
 
-    <!--Footer-->
-    <footer >
-        <div th:replace="fragments/footer.html :: footer"> </div>
-    </footer>
 </body>
 </html>
 
