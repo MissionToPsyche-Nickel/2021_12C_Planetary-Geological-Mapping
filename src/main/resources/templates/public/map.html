@@ -6,13 +6,6 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <script>
-        var src = document.getElementById('login-link').src;
-        document.getElementById('login-link').onclick = function togglePop(){
-            document.getElementById('popwin').classList.toggle("active");
-        }
-        function redirect(){
-            window.location.replace(src)
-        }
         function changeArrow(){
             if(document.getElementById('toggler').checked){
                 document.getElementById('arrow').classList.remove('icon-arrow-left');
@@ -28,15 +21,16 @@
 </head>
 <body>
     <section layout:fragment="content">
+        <input onclick="changeArrow()" type="checkbox" id="toggler" name="" value="">
+        <div class="page-wrap">
 
         <label for="toggler" th:class="${map.sliderName + '-toggle'}"><i id="arrow" class="icon-arrow-left"></i>
             <a th:class="${'toggle-title-' + map.sliderName}" th:text="${map.title}"></a>
         </label>
 
-        <input onclick="changeArrow()" type="checkbox" id="toggler" name="" value="">
-        <div class="page-wrap">
+
             <h1 th:text="${map.title}" class="psyche-headline"></h1>
-            <iframe th:if="${map.link}" width="1080" height="720" frameborder="0" scrolling="no" allowfullscreen th:src="${map.link}"></iframe>
+            <iframe th:if="${map.link}" width="100%" height="920" frameborder="0" scrolling="no" allowfullscreen th:src="${map.link}"></iframe>
 
             <div class="side-desc">
                 <h2 th:text="${map.title}"></h2>

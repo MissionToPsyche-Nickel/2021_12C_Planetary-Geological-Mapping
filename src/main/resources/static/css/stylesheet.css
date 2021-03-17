@@ -114,9 +114,9 @@ body
 .toggle-title-mars{
     transform: rotate(270deg);
     position: fixed;
-    top: 300px;
-    bottom: 200px;
-    right: -40px;
+    /*top: 300px;*/
+    bottom: 250px;
+    right: 0;
     z-index: 1;
     font-size: 30px;
     color: #f47c33;
@@ -136,7 +136,7 @@ body
     transition: 0.7s ease-in-out;
 }
 
-.toggle-title-mars:hover,.toggle:hover,.toggle-title-mars:hover, .mars-toggle:hover{
+.toggle-title-mars:hover,.toggle:hover,.mars-toggle:hover{
     color:#ef5966;
 }
 #toggler{
@@ -146,13 +146,13 @@ body
 
     right: 0;
 }
-#toggler:checked + .page-wrap .toggle{
+#toggler:checked + .page-wrap .mars-toggle{
 
     right: 400px;
 }
 #toggler:checked + .page-wrap .toggle-title-mars{
 
-    right: 340px;
+    right: 385px;
 }
 
 /*Moon Slider*/
@@ -160,8 +160,8 @@ body
     transform: rotate(270deg);
     position: fixed;
     /*top: 150px;*/
-    bottom: 100px;
-    right: -50px;
+    bottom: 250px;
+    right: -55px;
     z-index: 1;
     font-size: 30px;
     color: #f47c33;
@@ -172,7 +172,7 @@ body
 .moon-toggle{
     position: fixed;
     /*top: 150px;*/
-    bottom: 210px;
+    bottom: 350px;
     right: 20px;
     z-index: 1;
     font-size: 30px;
@@ -180,11 +180,49 @@ body
     cursor: pointer;
     transition: 0.7s ease-in-out;
 }
+.toggle-title-moon:hover,.toggle:hover,.moon-toggle:hover{
+    color:#ef5966;
+}
 #toggler:checked + .page-wrap .toggle-title-moon{
-
     right: 330px;
 }
 #toggler:checked + .page-wrap .moon-toggle{
+
+    right: 400px;
+}
+
+/*Psyhce Slider*/
+.toggle-title-psyche{
+    transform: rotate(270deg);
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 260px;
+    right: -35px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+    text-decoration: none;
+}
+.psyche-toggle{
+    position: fixed;
+    /*top: 150px;*/
+    bottom: 350px;
+    right: 20px;
+    z-index: 1;
+    font-size: 30px;
+    color: #f47c33;
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+}
+.toggle-title-psyche:hover,.toggle:hover,.psyche-toggle:hover{
+    color:#ef5966;
+}
+#toggler:checked + .page-wrap .toggle-title-psyche{
+    right: 350px;
+}
+#toggler:checked + .page-wrap .psyche-toggle{
 
     right: 400px;
 }
