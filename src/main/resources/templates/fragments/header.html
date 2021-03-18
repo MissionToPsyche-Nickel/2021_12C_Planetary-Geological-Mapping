@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" >
+<html xmlns:th="https://www.thymeleaf.org"  lang="en">
 <body>
 <div id="nav" th:fragment="nav">
 
     <nav class="navbar navbar-expand-sm navbar-light">
 
-        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" class="navbar-brand" id="psyche-title"><img id th:src="@{/images/Psyche_logo.jpg}" alt="Psyche logo" width="100" height="100"> Psyche </a>
+        <a href="https://psyche.asu.edu/" target="_blank" rel="noopener" id="psyche-title"><img id th:src="@{/images/Psyche_logo.jpg}" alt="Psyche logo" width="100" height="100"></a>
 
         <ul id="navbar-nav" class="navbar-nav">
-            <li class="active">
+            <li>
+                <a href="https://psyche.asu.edu/" target="_blank" rel="noopener"  class="navbar-brand">&nbsp Psyche</a>
+            </li>
+            <li>
                 <a class="nav-link" th:href="@{/}">&nbsp Home</a>
             </li>
             <li>

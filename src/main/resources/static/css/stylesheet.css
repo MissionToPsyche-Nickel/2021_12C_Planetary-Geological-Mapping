@@ -3,6 +3,8 @@ body
 {
     font-family: sans-serif;
     overflow-x: hidden;
+    /*min-height: 100vh;*/
+    height: 100vh;
 }
 
 .psyche-headline {
@@ -18,17 +20,18 @@ body
 
 /*Navbar*/
 .navbar-nav{
+    align-items: center;
     font-weight: bold;
     font-size: 20px;
 }
-
 .navbar-text{
     font-weight: bold;
     font-size: 20px;
 }
-#psyche-title{
-    text-decoration: none;
-}
+#navbar-nav li a{
+    color: black;
+    font-size: 20px;
+ }
 #navbar-nav li a:hover{
     color: red;
 }
@@ -38,10 +41,6 @@ body
     float: right;
     border: 1px #ef5966;
 
-}
-
-#psyche-title:hover{
-    color: #592651;
 }
 
 /*Social Links */
@@ -82,7 +81,7 @@ body
 
 /*index.html*/
 .d-block{
-    max-height: 800px;
+    max-height: 900px;
 }
 
 .carousel-caption{
@@ -92,6 +91,15 @@ body
 /*NEEDS REDONE*/
 
 
+/*Maps List*/
+.maps-list{
+    margin-bottom:393px;
+}
+
+/*Admin Home*/
+.admin-home{
+    padding-bottom: 693px;
+}
 /*maps.html, moon.html, mars.html, psyche.html*/
 
 /*For side slide bar*/
@@ -229,6 +237,9 @@ body
 
 /*footer*/
 .footer > p {
+    text-align: center;
+    background-color: #333333;
+    color: white;
     padding: 20px;
     font-size: 50%;
 }
