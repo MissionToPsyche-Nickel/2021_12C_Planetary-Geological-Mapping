@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+<!--    <script>-->
+<!--        function reWin(){-->
+
+<!--            var modalBox = document.querySelector('.box-wrapper')-->
+<!--            var redirectbtn = document.querySelector('.btn-redirect')-->
+<!--            var backbtn = document.querySelector('.btn-back')-->
+<!--            var closebtn = document.querySelector('.btn-close')-->
+<!--            var mapSource = document.getElementById('mapFrame').src-->
+
+<!--            window.addEventListener("beforeunload", function(){-->
+<!--                modalBox.classList.add('.box-active')-->
+<!--            })-->
+<!--            redirectbtn.addEventListener('click', function(){-->
+<!--                // window.location.replace(mapSource)-->
+<!--                window.location.replace("https://psyche.asu.edu/")-->
+<!--            })-->
+
+<!--            backbtn.addEventListener('click', function(){-->
+<!--                modalBox.classList.remove('.box-active')-->
+<!--            })-->
+<!--            closebtn.addEventListener('click', function(){-->
+<!--                modalBox.classList.remove('.box-active')-->
+<!--            })-->
+
+
+<!--            document.getElementById('usgsLink').addEventListener('click', function(){-->
+<!--                modalBox.classList.add('.box-active')-->
+<!--            })-->
+<!--            document.getElementById('login-link').addEventListener('click', function(){-->
+<!--                modalBox.classList.add('.box-active')-->
+<!--            })-->
+<!--            document.getElementById('webmap-title-text').addEventListener('click', function(){-->
+<!--                modalBox.classList.add('.box-active')-->
+<!--            })-->
+<!--            document.getElementById('homeTitle').addEventListener('click', function(){-->
+<!--                modalBox.classList.add('.box-active')-->
+<!--            })-->
+<!--        }-->
+
+
+
+<!--    </script>-->
+</head>
+<body>
+<div id="redirect" th:fragment="redirect">
+
+
+    <div id="popwin" class="box-wrapper">
+        <div class="box">
+            <div class="btn-close">&times;</div>
+            <h2>This is going to redirect you!</h2>
+            <a>This link will redirect you to.</a>
+            <div class="btn-back"></div>
+            <div class="btn-redirect"></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

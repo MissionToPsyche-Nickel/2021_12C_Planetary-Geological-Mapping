@@ -4,27 +4,69 @@
     <title>Map Library</title>
 </head>
 <body>
-
     <section layout:fragment="content">
-        <h1 class="psyche-headline">Select a Map to View.</h1>
-            <table>
-                <tr th:each="map,iterStat : ${maps}">
-                    <td>
-                        <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
-                            <p th:text="${map.title}" class="psyche-body"> </p>
-                        </a>
-                    </td>
-                    <td>
-                        <p> &nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                        <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
-                            <img th:src="${map.image}" height="100" width="100">
-                        </a>
-                    </td>
-                </tr>
-            </table>
+        <div class="map-wrap">
+            <div class="map-list-wrap">
+                <h1 class="psyche-headline">Select a Map to View.</h1>
+                <table>
+                    <tr th:each="map,iterStat : ${maps}">
+                        <td>
+                            <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
+                                <p th:text="${map.title}" class="psyche-body"> </p>
+                            </a>
+                        </td>
+                        <td>
+                            <p> &nbsp;&nbsp;&nbsp;</p>
+                        </td>
+                        <td>
+                            <a id="map" style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
+                                <img th:src="${map.image}" height="100" width="100">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!--        <iframe src="./PsycheBlend.html" width="200" height="200"></iframe>-->
+            <div class="index-ref-wrap">
+
+                <div class="ref-div">
+                    <h1 id="ref-title">Acknowledgements</h1>
+                    <ul class="ref-summary">
+                        <li>
+                            <a class="ref-link" href="https://www.jpl.nasa.gov/" rel="noopener" target="_blank">Jet Propulsion Laboratory</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://trek.nasa.gov/" rel="noopener" target="_blank">Nasa Treks</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://solarsystem.nasa.gov/" rel="noopener" target="_blank">Nasa Solar System Exploration</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://www.asu.edu/" rel="noopener" target="_blank">Arizona State University</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://www.psu.edu/" rel="noopener" target="_blank">Penn State University</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://psyche.asu.edu/" rel="noopener" target="_blank">Psyche</a>
+                        </li>
+                        <li>
+                            <a class="ref-link"  href="https://www.esri.com/en-us/arcgis/about-arcgis/overview" rel="noopener" target="_blank">ArcGIS</a>
+                        </li>
+
+                        <li>
+                            <a class="ref-link"  href="https://www.usgs.gov/centers/astrogeology-science-center" rel="noopener" target="_blank">USGS</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </section>
+
+
 
 </body>
 </html>
