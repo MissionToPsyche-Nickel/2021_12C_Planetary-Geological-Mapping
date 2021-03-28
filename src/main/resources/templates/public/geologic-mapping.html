@@ -2,23 +2,36 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
     <title>Geologic Mapping</title>
+
 </head>
 
 <body>
 
     <!--Content-->
-    <section layout:fragment="content">
-        <h1 class="events-title psyche-headline">Planetary Geological Mapping</h1>
-        <p class="events psyche-body">
-            Geological mapping is the creation of a special map made to display various geological features.
-            "It is a highly interpretive, scientific process that can produce a range of map products for many different uses, including assessing ground water quality and contamination risks;
-            predicting earthquake, volcano, and landslide hazards." -<a href="https://www.usgs.gov/core-science-systems/national-cooperative-geologic-mapping-program/science/introduction-geologic?qt-science_center_objects=0#qt-science_center_objects" rel="noopener" target="_blank">USGS</a>
-            They are also used for planetary mapping!
+    <section id="geo-content" layout:fragment="content">
+        <div class="geo-info">
+            <h1 class="events-title psyche-headline">Planetary Geological Mapping</h1>
+            <p class="events psyche-body">
+                Lets start with what geological mapping is! Geological mapping is the creation of a special map made to display various geological features. These special maps represent the distribution
+                of different types of rock and deposits, as well as locations of geological structures such as faults and folds. It is a highly interpretive, scientific process that can produce
+                a range of map products for many different uses, including assessing ground water quality and contamination risks; predicting earthquake, volcano, and landslide hazards. <br>
+                Now Lets apply this knowledge to the planetary objects! The goal of geological mapping is to place observations of surface features into stratigraphic context in order to develop
+                generalized geologic timescales that provide a sequence of events fore the evolution of planetary surfaces. Geological maps are tools that have aided in the understanding of the
+                process that produced morphologically-distinct materials observed throughout the Solar System, and that chemical and physical analysis of a given site on a planetary body can be
+                investigated far better if the geological setting of the site is known first. Selecting a position on the planet to land a rover will be far less risky knowing the geological site first.
+        </div>
+
+        <div class="geo-images">
+            <img id="geo-sata" class="geo-sata" src="images/Psyche_spacecraft_model.png" alt="spacecraft">
+            <img id="geo-psyche" class="geo-psyche" src="images/Psyche_home.png" alt="psyhce">
+        </div>
             
         </p>
-        <img class="psyche-launch-img" src="images/Camelback3DScene.jpg" alt="Psysche_Launch">
-    </section>
 
+
+
+<!--        <img class="camelback" src="images/Camelback3DScene.jpg" alt="camelback">-->
+    </section>
 </body>
 </html>
 
