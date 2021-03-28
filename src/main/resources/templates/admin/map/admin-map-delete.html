@@ -1,18 +1,24 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">-->
-<!--<head>-->
-<!--    <title>Admin - Slider - Delete</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <section layout:fragment="content">-->
-<!--        <h1>Edit Slide</h1>-->
-<!--        <form method="post">-->
-<!--            <label>Title: <input th:field="${slide.title}" type="text" readonly></label>-->
-<!--            <label>Caption: <input th:field="${slide.caption}" type="text" readonly></label>-->
-<!--            <label>Image: <input th:field="${slide.image}" type="text" readonly></label>-->
-<!--            <p>&nbsp;</p>-->
-<!--            <button class="btn btn-primary" type="submit">Delete</button>-->
-<!--        </form>-->
-<!--    </section>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
+<head>
+    <title>Admin - Map - Delete</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <h1>Edit Slide</h1>
+        <form method="post">
+
+
+            <label>Title: <input th:field="${map.title}" name="title" type="text" readonly></label>
+            <label>Link: <input th:field="${map.link}" name="link" type="text"  readonly></label>
+            <label>Image: <input th:field="${map.image}" name="image" type="text"  readonly></label>
+            <br>
+            <label>Slider Name: <input th:field="${map.sliderName}" name="slider_name" type="text"  readonly></label>
+            <label>Facts: <textarea th:field="${map.facts}" name="facts" type="text"  readonly></textarea></label>
+
+            <p>&nbsp;</p>
+            <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+    </section>
+</body>
+</html>

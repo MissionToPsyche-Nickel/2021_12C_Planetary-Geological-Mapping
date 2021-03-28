@@ -21,6 +21,28 @@ public class Map {
 
     private String image;
 
+    public Map(){
+
+    }
+
+    public Map(String title, String link, String facts, String sliderName, String image){
+        this.id = id;
+        this.title = title;
+        this.link = link;
+        this.facts = facts;
+        this.sliderName = sliderName;
+        this.image = image;
+    }
+
+    public Map(Integer id, String title, String link, String facts, String sliderName, String image){
+        this.id = id;
+        this.title = title;
+        this.link = link;
+        this.facts = facts;
+        this.sliderName = sliderName;
+        this.image = image;
+    }
+
     public Integer getId(){
         return id;
     }
