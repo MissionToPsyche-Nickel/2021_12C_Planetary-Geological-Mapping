@@ -63,7 +63,7 @@ public class AdminController {
     public String sliderEdited(Model model,@PathVariable int id, @RequestParam("title") String title,
                               @RequestParam("caption") String caption, @RequestParam("image") String image){
 
-        Slide slide = new Slide(id, title, caption, image);
+        Slide slide = new Slide(title, caption, image);
 
         slideRepo.save(slide);
 
@@ -130,7 +130,7 @@ public class AdminController {
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
                             @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
 
-        Map map = new Map(id, title, link, facts, slider_name, image);
+        Map map = new Map(title, link, facts, slider_name, image);
         mapRepo.save(map);
 
         List<Map> maps = mapRepo.findAll();
