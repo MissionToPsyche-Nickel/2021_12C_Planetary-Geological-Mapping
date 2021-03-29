@@ -87,7 +87,7 @@ body
 
 /*index.html*/
 .d-block{
-    max-height: 900px;
+    max-height: 800px;
 }
 
 .carousel-caption{
@@ -96,6 +96,12 @@ body
 
 .carousel-item{
     object-fit: cover;
+}
+
+#home-carousel {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*geological-mapping.html*/
@@ -182,15 +188,7 @@ body
 .ref-div{
     flex: 50%;
 }
-/*.link-preview{*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    border: 1px solid black;*/
-/*    width: 300px;*/
-/*    height: 300px;*/
-/*    !*flex: 50%;*!*/
-/*    float: right;*/
-/*}*/
+
 .ref-summary{
     flex: 50%;
     list-style: none;
