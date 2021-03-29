@@ -16,14 +16,16 @@
 
 </head>
 
+<body>
+<div class="wrapper">
 <div th:replace="fragments/header.html :: nav"> </div>
 
-<body>
+    <section class="main-content" layout:fragment="content">
+        <p>Page content goes here</p>
+    </section>
 
-<section class="main-content" layout:fragment="content">
-    <p>Page content goes here</p>
-</section>
-
+    <div class="push"></div>
+</div>
 <footer>
     <div th:replace="fragments/footer.html :: footer"> </div>
 </footer>
