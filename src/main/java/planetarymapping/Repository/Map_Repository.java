@@ -7,7 +7,7 @@ import planetarymapping.model.Map;
 import java.util.List;
 
 @Repository
-public interface MapRepository extends JpaRepository<Map, Integer> {
+public interface Map_Repository extends JpaRepository<Map, Integer> {
    List<Map> findAll();
 
    Map findAllById(Integer id);

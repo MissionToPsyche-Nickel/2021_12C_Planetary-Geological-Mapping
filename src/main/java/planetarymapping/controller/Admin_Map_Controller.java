@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.MapRepository;
+import planetarymapping.Repository.Map_Repository;
 import planetarymapping.model.Map;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Admin_Map_Controller {
 
     @Autowired
-    MapRepository mapRepo;
+    Map_Repository mapRepo;
 
     /*Map Admin*/
     @GetMapping("")

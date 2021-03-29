@@ -7,7 +7,7 @@ import planetarymapping.model.Accordion;
 import java.util.List;
 
 @Repository
-public interface AccordionRepository extends JpaRepository<Accordion, Integer> {
+public interface Accordion_Repository extends JpaRepository<Accordion, Integer> {
    List<Accordion> findAll();
 
    Accordion findAllById(Integer id);

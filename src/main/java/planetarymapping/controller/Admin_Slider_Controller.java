@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.SlideRepository;
+import planetarymapping.Repository.Slide_Repository;
 import planetarymapping.model.Slide;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Admin_Slider_Controller {
 
     @Autowired
-    SlideRepository slideRepo;
+    Slide_Repository slideRepo;
 
     /*Slider Admin*/
     @GetMapping("")

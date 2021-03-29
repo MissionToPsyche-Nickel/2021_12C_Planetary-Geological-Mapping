@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.MapRepository;
+import planetarymapping.Repository.Map_Repository;
 import planetarymapping.model.Map;
 
 import java.util.List;
 
 @Controller
-public class MapController {
+public class Map_Controller {
 
     @Autowired
-    MapRepository mapRepo;
+    Map_Repository mapRepo;
 
     @GetMapping("/map")
     public String mapNav(Model model){

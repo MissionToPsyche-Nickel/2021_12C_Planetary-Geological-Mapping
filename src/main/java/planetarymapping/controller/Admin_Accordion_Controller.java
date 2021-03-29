@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.AccordionRepository;
+import planetarymapping.Repository.Accordion_Repository;
 import planetarymapping.model.Accordion;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Admin_Accordion_Controller {
 
     @Autowired
-    AccordionRepository accordionRepo;
+    Accordion_Repository accordionRepo;
 
     /*Accordion Admin*/
     @GetMapping("")
