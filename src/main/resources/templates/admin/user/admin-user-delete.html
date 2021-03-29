@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
+<head>
+    <title>Admin - User - Delete</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <h1>Delete User</h1>
+        <form method="post">
+            <label>Username: <input th:field="${user.userName}" type="text" readonly></label>
+            <label>Password: <input th:field="${user.password}" type="text" readonly></label>
+            <p>&nbsp;</p>
+            <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+    </section>
+</body>
+</html>
