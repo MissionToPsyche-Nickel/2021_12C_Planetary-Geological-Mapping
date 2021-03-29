@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
+<head>
+    <title>Admin Slider</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <p>&nbsp;</p>
+        <a class="btn btn-primary" th:href="@{/admin/accordion/add}" role="button">Add New</a>
+        <p>&nbsp;</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Paragraph</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="accordion, iStat : ${accordions}">
+                    <th scope="row" th:text="${iStat.count}"></th>
+                    <td th:text="${accordion.id}"></td>
+                    <td th:text="${accordion.title}"></td>
+                    <td th:text="${accordion.paragraph}"></td>
+                    <td><a th:href="${'/admin/accordion/edit/' + accordion.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/accordion/delete/' + accordion.id}"> Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

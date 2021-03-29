@@ -3,8 +3,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
+import planetarymapping.Repository.AccordionRepository;
 import planetarymapping.Repository.MapRepository;
 import planetarymapping.Repository.SlideRepository;
+import planetarymapping.model.Accordion;
 import planetarymapping.model.Map;
 import planetarymapping.model.Slide;
 
@@ -19,6 +21,9 @@ public class AdminController {
 
     @Autowired
     MapRepository mapRepo;
+
+    @Autowired
+    AccordionRepository accordionRepo;
 
     @GetMapping("")
     public String admin(){
@@ -105,7 +110,7 @@ public class AdminController {
 
     @PostMapping("/map/add")
     public String mapAdded(Model model, @RequestParam("title") String title,
-                              @RequestParam("link") String link, @RequestParam("facts") String facts,
+                           @RequestParam("link") String link, @RequestParam("facts") String facts,
                            @RequestParam("slider_name") String slider_name, @RequestParam("image") String image){
 
         Map map = new Map(title, link, facts, slider_name, image);
@@ -154,5 +159,71 @@ public class AdminController {
         List<Map> maps = mapRepo.findAll();
         model.addAttribute("maps", maps);
         return "admin/map/admin-map";
+    }
+
+    /*Accordion Admin*/
+    @GetMapping("/accordion")
+    public String accordion(Model model){
+        List<Accordion> accordions = accordionRepo.findAll();
+        model.addAttribute("accordions", accordions);
+        return "admin/accordion/admin-accordion";
+    }
+
+    @GetMapping("/accordion/add")
+    public String accordionAdd(){
+        return "admin/accordion/admin-accordion-add";
+    }
+
+    @PostMapping("/accordion/add")
+    public String accordionAdded(Model model, @RequestParam("title") String title,
+                                 @RequestParam("link") String link, @RequestParam("facts") String facts,
+                                 @RequestParam("slider_name") String slider_name, @RequestParam("image") String image){
+
+        Map map = new Map(title, link, facts, slider_name, image);
+        mapRepo.save(map);
+
+        List<Map> maps = mapRepo.findAll();
+        model.addAttribute("maps", maps);
+        return "admin/map/admin-map";
+    }
+
+    @GetMapping("/accordion/edit/{id}")
+    public String accordionEdit(@PathVariable int id, Model model){
+
+        Map map = mapRepo.findAllById(id);
+        mapRepo.deleteById(id);
+        model.addAttribute("map", map);
+        return "admin/accordion/admin-accordion-edit";
+    }
+
+    @PostMapping("/accordion/edit/{id}")
+    public String accordionEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
+                                  @RequestParam("link") String link, @RequestParam("facts") String facts,
+                                  @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
+
+        Map map = new Map(title, link, facts, slider_name, image);
+        mapRepo.save(map);
+
+        List<Map> maps = mapRepo.findAll();
+        model.addAttribute("maps", maps);
+        return "admin/accordion/admin-accordion";
+    }
+
+    @GetMapping("/accordion/delete/{id}")
+    public String accordionDelete(@PathVariable int id, Model model){
+
+        Map map = mapRepo.findAllById(id);
+        model.addAttribute("map", map);
+        return "admin/accordion/admin-accordion-delete";
+    }
+
+    @PostMapping("/accordion/delete/{id}")
+    public String accordionDeleted(Model model,@PathVariable int id){
+
+        mapRepo.deleteById(id);
+
+        List<Map> maps = mapRepo.findAll();
+        model.addAttribute("maps", maps);
+        return "admin/accordion/admin-accordion";
     }
 }
