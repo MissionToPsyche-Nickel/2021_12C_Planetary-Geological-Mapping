@@ -2,23 +2,28 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
     <title>Geologic Mapping</title>
-
 </head>
 
 <body>
-
     <!--Content-->
     <section id="geo-content" layout:fragment="content">
         <div class="geo-info">
             <h1 class="events-title psyche-headline">Planetary Geological Mapping</h1>
-            <p class="events psyche-body">
-                Lets start with what geological mapping is! Geological mapping is the creation of a special map made to display various geological features. These special maps represent the distribution
-                of different types of rock and deposits, as well as locations of geological structures such as faults and folds. It is a highly interpretive, scientific process that can produce
-                a range of map products for many different uses, including assessing ground water quality and contamination risks; predicting earthquake, volcano, and landslide hazards. <br>
-                Now Lets apply this knowledge to the planetary objects! The goal of geological mapping is to place observations of surface features into stratigraphic context in order to develop
-                generalized geologic timescales that provide a sequence of events fore the evolution of planetary surfaces. Geological maps are tools that have aided in the understanding of the
-                process that produced morphologically-distinct materials observed throughout the Solar System, and that chemical and physical analysis of a given site on a planetary body can be
-                investigated far better if the geological setting of the site is known first. Selecting a position on the planet to land a rover will be far less risky knowing the geological site first.
+            <p>&nbsp;</p>
+            <div class="accordion" id="geomapping-accordion">
+                <div th:each="accordion,iterStat : ${accordions}" class="accordion-item">
+                    <h2 class="accordion-header" th:id="${'heading' + accordion.id}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" th:text="${accordion.title}" th:data-bs-target="${'#collapse' + accordion.id}" th:aria-expanded="${iterStat.first}? 'true' : 'false'" th:aria-controls="${'#collapse' + accordion.id}">
+                        </button>
+                    </h2>
+                    <div th:id="${'collapse' + accordion.id}" class="accordion-collapse collapse" th:classappend="${iterStat.first}? 'show'" th:aria-labelledby="${'heading' + accordion.id}" data-bs-parent="#geomapping-accordion">
+                        <div class="accordion-body">
+                            <p th:text="${accordion.paragraph}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="geo-images">
@@ -27,10 +32,6 @@
         </div>
             
         </p>
-
-
-
-<!--        <img class="camelback" src="images/Camelback3DScene.jpg" alt="camelback">-->
     </section>
 </body>
 </html>

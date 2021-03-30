@@ -6,9 +6,9 @@
 <body>
     <section layout:fragment="content">
         <p>&nbsp;</p>
-        <h1>Slides</h1>
+        <h1>Accordions</h1>
         <p>&nbsp;</p>
-        <a class="btn btn-primary" th:href="@{/admin/slider/add}" role="button">Add New</a>
+        <a class="btn btn-primary" th:href="@{/admin/accordion/add}" role="button">Add New</a>
         <p>&nbsp;</p>
         <table class="table">
             <thead>
@@ -16,19 +16,17 @@
                     <th scope="col">Number</th>
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Caption</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Paragraph</th>
                     <th scope="col">Edit/Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="slide, iStat : ${slides}">
+                <tr th:each="accordion, iStat : ${accordions}">
                     <th scope="row" th:text="${iStat.count}"></th>
-                    <td th:text="${slide.id}"></td>
-                    <td th:text="${slide.title}"></td>
-                    <td th:text="${slide.caption}"></td>
-                    <td th:text="${slide.image}"></td>
-                    <td><a th:href="${'/admin/slider/edit/' + slide.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/slider/delete/' + slide.id}"> Delete</a></td>
+                    <td th:text="${accordion.id}"></td>
+                    <td th:text="${accordion.title}"></td>
+                    <td th:text="${accordion.paragraph}"></td>
+                    <td><a th:href="${'/admin/accordion/edit/' + accordion.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/accordion/delete/' + accordion.id}"> Delete</a></td>
                 </tr>
             </tbody>
         </table>

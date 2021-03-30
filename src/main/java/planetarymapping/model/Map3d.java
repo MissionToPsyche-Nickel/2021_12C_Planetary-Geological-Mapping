@@ -3,7 +3,7 @@ package planetarymapping.model;
 import javax.persistence.*;
 
 @Entity
-public class Map {
+public class Map3d {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,26 +21,20 @@ public class Map {
 
     private String image;
 
-    public Map(){
+    private String dimension;
+
+    public Map3d(){
 
     }
 
-    public Map(String title, String link, String facts, String sliderName, String image){
+    public Map3d(String title, String link, String facts, String sliderName, String image){
         this.id = id;
         this.title = title;
         this.link = link;
         this.facts = facts;
         this.sliderName = sliderName;
         this.image = image;
-    }
-
-    public Map(Integer id, String title, String link, String facts, String sliderName, String image){
-        this.id = id;
-        this.title = title;
-        this.link = link;
-        this.facts = facts;
-        this.sliderName = sliderName;
-        this.image = image;
+        this.dimension = "3d";
     }
 
     public Integer getId(){
@@ -64,4 +58,6 @@ public class Map {
     public String getSliderName(){
         return sliderName;
     }
+
+    public String getDimension(){ return dimension; }
 }

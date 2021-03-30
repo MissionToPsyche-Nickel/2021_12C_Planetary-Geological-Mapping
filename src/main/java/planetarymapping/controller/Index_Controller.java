@@ -14,18 +14,18 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import planetarymapping.Repository.SlideRepository;
+import planetarymapping.Repository.Slide_Repository;
 import planetarymapping.model.Slide;
 
 import java.util.List;
 
 @Controller
-public class IndexController implements ErrorController {
+public class Index_Controller implements ErrorController {
 
     private static final String PATH = "/error";
 
     @Autowired
-    SlideRepository slideRepo;
+    Slide_Repository slideRepo;
 
     @Override
     public String getErrorPath() {

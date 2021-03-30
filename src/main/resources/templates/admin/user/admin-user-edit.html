@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
-    <title>Admin - Slider - Edit</title>
+    <title>Admin - User - Edit</title>
 </head>
 <body>
     <section layout:fragment="content">
-        <h1>Edit Slide</h1>
+        <h1>Edit User</h1>
         <p>&nbsp;</p>
         <form method="post">
-            <label>Title: <input th:field="${slide.title}" name="title" type="text"></label>
-            <label>Caption: <input th:field="${slide.caption}" name="caption" type="text"></label>
-            <label>Image: <input th:field="${slide.image}" name="image" type="text"></label>
+            <label>Username: <input th:field="${user.userName}" name="userName" type="text"></label>
+            <label>Password: <input th:field="${user.password}" name="password" type="text"></label>
             <p>&nbsp;</p>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
