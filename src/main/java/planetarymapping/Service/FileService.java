@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import planetarymapping.exceptions.FileStorageException;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -31,16 +32,4 @@ public class FileService {
     }
 }
 
-class FileStorageException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
-    private String msg;
-
-    public FileStorageException(String msg) {
-        this.msg = msg;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-}
