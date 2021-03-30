@@ -7,10 +7,12 @@
     <section layout:fragment="content">
         <h1>Edit Map</h1>
         <p>&nbsp;</p>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label>Title: <input th:field="${map.title}" name="title" type="text"></label>
             <label>Link: <input th:field="${map.link}" name="link" type="text"></label>
-            <label>Image: <input th:field="${map.image}" name="image" type="text"></label>
+            <br>
+            <label>Current Image: <input th:field="${map.image}" type="text" readonly></label>
+            <label>Image: <input name="file" type="file"></label>
             <br>
             <label>Slider Name: <input th:field="${map.sliderName}" name="sliderName" type="text"></label>
             <label>Facts: <textarea th:field="${map.facts}" name="facts" type="text"></textarea></label>

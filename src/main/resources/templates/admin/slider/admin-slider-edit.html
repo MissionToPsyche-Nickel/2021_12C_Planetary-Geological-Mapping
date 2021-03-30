@@ -7,10 +7,12 @@
     <section layout:fragment="content">
         <h1>Edit Slide</h1>
         <p>&nbsp;</p>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label>Title: <input th:field="${slide.title}" name="title" type="text"></label>
             <label>Caption: <input th:field="${slide.caption}" name="caption" type="text"></label>
-            <label>Image: <input th:field="${slide.image}" name="image" type="text"></label>
+            <br>
+            <label>Current Image: <input th:field="${slide.image}" type="text" readonly></label>
+            <label>Image: <input name="file" type="file"></label>
             <p>&nbsp;</p>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>

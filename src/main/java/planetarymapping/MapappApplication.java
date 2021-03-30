@@ -18,4 +18,5 @@ public class MapappApplication {
         SpringApplication.run(MapappApplication.class, args);
     }
 
+
 }

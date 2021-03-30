@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import planetarymapping.Repository.Slide_Repository;
+import planetarymapping.Service.FileService;
 import planetarymapping.model.Slide;
 
 import java.util.List;
@@ -15,6 +17,9 @@ public class Admin_Slider_Controller {
 
     @Autowired
     Slide_Repository slideRepo;
+
+    @Autowired
+    FileService fileService;
 
     /*Slider Admin*/
     @GetMapping("")
@@ -31,9 +36,11 @@ public class Admin_Slider_Controller {
 
     @PostMapping("/add")
     public String sliderAdded(Model model, @RequestParam("title") String title,
-                              @RequestParam("caption") String caption, @RequestParam("image") String image){
+                              @RequestParam("caption") String caption, @RequestParam("file") MultipartFile file){
 
-        Slide slide = new Slide(title, caption, image);
+        fileService.uploadFile(file);
+
+        Slide slide = new Slide(title, caption, file.getOriginalFilename());
         slideRepo.save(slide);
 
         List<Slide> slides = slideRepo.findAll();
@@ -51,12 +58,14 @@ public class Admin_Slider_Controller {
 
     @PostMapping("/edit/{id}")
     public String sliderEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
-                              @RequestParam("caption") String caption, @RequestParam("image") String image){
+                              @RequestParam("caption") String caption,  @RequestParam("file") MultipartFile file){
+
+        fileService.uploadFile(file);
 
         Slide slide = slideRepo.findAllById(id);
 
         slide.setTitle(title);
-        slide.setImage(image);
+        slide.setImage(file.getOriginalFilename());
         slide.setCaption(caption);
 
         slideRepo.save(slide);
