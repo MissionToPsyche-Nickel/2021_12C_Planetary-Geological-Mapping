@@ -45,16 +45,20 @@ public class Admin_Accordion_Controller {
     public String accordionEdit(@PathVariable int id, Model model){
 
         Accordion accordion = accordionRepo.findAllById(id);
-        accordionRepo.deleteById(id);
+
         model.addAttribute("accordion", accordion);
         return "admin/accordion/admin-accordion-edit";
     }
 
     @PostMapping("/edit/{id}")
-    public String accordionEdited(Model model, @RequestParam("title") String title,
+    public String accordionEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                                   @RequestParam("paragraph") String paragraph){
 
-        Accordion accordion = new Accordion(title, paragraph);
+        Accordion accordion = accordionRepo.findAllById(id);
+
+        accordion.setTitle(title);
+        accordion.setParagraph(paragraph);
+
         accordionRepo.save(accordion);
 
         List<Accordion> accordions = accordionRepo.findAll();
