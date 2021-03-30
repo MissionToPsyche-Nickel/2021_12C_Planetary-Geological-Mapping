@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import planetarymapping.Repository.Map2d_Repository;
 import planetarymapping.Repository.Map3d_Repository;
+import planetarymapping.Service.FileService;
 import planetarymapping.model.Map2d;
 import planetarymapping.model.Map3d;
 
@@ -20,6 +22,9 @@ public class Admin_Map_Controller {
 
     @Autowired
     Map2d_Repository map2dRepo;
+
+    @Autowired
+    FileService fileService;
 
     /*Map Admin*/
     @GetMapping("")
@@ -44,9 +49,11 @@ public class Admin_Map_Controller {
     @PostMapping("/add3d")
     public String map3dAdded(Model model, @RequestParam("title") String title,
                            @RequestParam("link") String link, @RequestParam("facts") String facts,
-                           @RequestParam("slider_name") String slider_name, @RequestParam("image") String image){
+                           @RequestParam("slider_name") String slider_name, @RequestParam("file") MultipartFile file){
 
-        Map3d map3d = new Map3d(title, link, facts, slider_name, image);
+        fileService.uploadFile(file);
+
+        Map3d map3d = new Map3d(title, link, facts, slider_name, file.getOriginalFilename());
         map3dRepo.save(map3d);
 
         List<Map3d> maps3d = map3dRepo.findAll();
@@ -59,9 +66,11 @@ public class Admin_Map_Controller {
     @PostMapping("/add2d")
     public String map2dAdded(Model model, @RequestParam("title") String title,
                            @RequestParam("link") String link, @RequestParam("facts") String facts,
-                           @RequestParam("slider_name") String slider_name, @RequestParam("image") String image){
+                           @RequestParam("slider_name") String slider_name, @RequestParam("file") MultipartFile file){
 
-        Map2d map2d = new Map2d(title, link, facts, slider_name, image);
+        fileService.uploadFile(file);
+
+        Map2d map2d = new Map2d(title, link, facts, slider_name, file.getOriginalFilename());
         map2dRepo.save(map2d);
 
         List<Map3d> maps3d = map3dRepo.findAll();
@@ -92,7 +101,9 @@ public class Admin_Map_Controller {
     @PostMapping("/edit3d/{id}")
     public String map3dEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
-                            @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
+                            @RequestParam("sliderName") String slider_name, @RequestParam("file") MultipartFile file){
+
+        fileService.uploadFile(file);
 
         Map3d map = map3dRepo.findAllById(id);
 
@@ -100,7 +111,7 @@ public class Admin_Map_Controller {
         map.setLink(link);
         map.setFacts(facts);
         map.setSliderName(slider_name);
-        map.setImage(image);
+        map.setImage(file.getOriginalFilename());
 
         map3dRepo.save(map);
 
@@ -114,7 +125,9 @@ public class Admin_Map_Controller {
     @PostMapping("/edit2d/{id}")
     public String map2dEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
-                            @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
+                            @RequestParam("sliderName") String slider_name, @RequestParam("file") MultipartFile file){
+
+        fileService.uploadFile(file);
 
         Map2d map = map2dRepo.findAllById(id);
 
@@ -122,7 +135,7 @@ public class Admin_Map_Controller {
         map.setLink(link);
         map.setFacts(facts);
         map.setSliderName(slider_name);
-        map.setImage(image);
+        map.setImage(file.getOriginalFilename());
 
         map2dRepo.save(map);
 
