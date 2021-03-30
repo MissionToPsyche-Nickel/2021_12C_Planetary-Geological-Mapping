@@ -75,7 +75,7 @@ public class Admin_Map_Controller {
     public String map3dEdit(@PathVariable int id, Model model){
 
         Map3d map = map3dRepo.findAllById(id);
-        map3dRepo.deleteById(id);
+
         model.addAttribute("map", map);
         return "admin/map/admin-map-edit";
     }
@@ -84,7 +84,7 @@ public class Admin_Map_Controller {
     public String map2dEdit(@PathVariable int id, Model model){
 
         Map2d map = map2dRepo.findAllById(id);
-        map2dRepo.deleteById(id);
+
         model.addAttribute("map", map);
         return "admin/map/admin-map-edit";
     }
@@ -94,7 +94,14 @@ public class Admin_Map_Controller {
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
                             @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
 
-        Map3d map = new Map3d(title, link, facts, slider_name, image);
+        Map3d map = map3dRepo.findAllById(id);
+
+        map.setTitle(title);
+        map.setLink(link);
+        map.setFacts(facts);
+        map.setSliderName(slider_name);
+        map.setImage(image);
+
         map3dRepo.save(map);
 
         List<Map3d> maps3d = map3dRepo.findAll();
@@ -109,7 +116,14 @@ public class Admin_Map_Controller {
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
                             @RequestParam("sliderName") String slider_name, @RequestParam("image") String image){
 
-        Map2d map = new Map2d(title, link, facts, slider_name, image);
+        Map2d map = map2dRepo.findAllById(id);
+
+        map.setTitle(title);
+        map.setLink(link);
+        map.setFacts(facts);
+        map.setSliderName(slider_name);
+        map.setImage(image);
+
         map2dRepo.save(map);
 
         List<Map3d> maps3d = map3dRepo.findAll();

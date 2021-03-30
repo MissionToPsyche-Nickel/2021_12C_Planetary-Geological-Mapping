@@ -32,4 +32,8 @@ public class Accordion {
     public String getParagraph(){
         return paragraph;
     }
+
+    public void setTitle(String title){ this.title = title; }
+
+    public void setParagraph(String paragraph){ this.paragraph = paragraph; }
 }

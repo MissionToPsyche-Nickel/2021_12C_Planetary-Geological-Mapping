@@ -45,16 +45,19 @@ public class Admin_Slider_Controller {
     public String sliderEdit(@PathVariable int id, Model model){
 
         Slide slide = slideRepo.findAllById(id);
-        slideRepo.deleteById(id);
         model.addAttribute("slide", slide);
         return "admin/slider/admin-slider-edit";
     }
 
     @PostMapping("/edit/{id}")
-    public String sliderEdited(Model model,@PathVariable int id, @RequestParam("title") String title,
+    public String sliderEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                               @RequestParam("caption") String caption, @RequestParam("image") String image){
 
-        Slide slide = new Slide(title, caption, image);
+        Slide slide = slideRepo.findAllById(id);
+
+        slide.setTitle(title);
+        slide.setImage(image);
+        slide.setCaption(caption);
 
         slideRepo.save(slide);
 

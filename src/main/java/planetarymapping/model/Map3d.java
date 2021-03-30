@@ -60,4 +60,20 @@ public class Map3d {
     }
 
     public String getDimension(){ return dimension; }
+
+    public void setTitle(String title){ this.title = title; }
+
+    public void setLink(String link){
+        this.link = link;
+    }
+
+    public void setFacts(String facts){ this.facts = facts; }
+
+    public void setImage(String image){ this.image = image; }
+
+    public void setSliderName(String sliderName){
+        this.sliderName = sliderName;
+    }
+
+    public void setDimension(String dimension){ this.dimension = dimension; }
 }
