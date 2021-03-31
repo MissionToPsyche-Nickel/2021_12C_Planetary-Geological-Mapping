@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
-    <title>Admin - Slider - Delete</title>
+    <title>Admin - Accordion - Delete</title>
 </head>
 <body>
     <section layout:fragment="content">
-        <h1>Edit Slide</h1>
+        <h1>Delete Accordion</h1>
         <p>&nbsp;</p>
         <form method="post">
-            <label>Title: <input th:field="${slide.title}" type="text" readonly></label>
-            <label>Caption: <input th:field="${slide.caption}" type="text" readonly></label>
-            <label>Image: <input th:field="${slide.image}" type="text" readonly></label>
+            <label>Title: <input th:field="${accordion.title}" type="text" readonly></label>
+            <label>Paragraph: <textarea th:field="${accordion.paragraph}" type="text" readonly></textarea></label>
             <p>&nbsp;</p>
             <button class="btn btn-primary" type="submit">Delete</button>
         </form>

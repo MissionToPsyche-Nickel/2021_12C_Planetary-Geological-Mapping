@@ -27,13 +27,6 @@ public class Slide {
         this.image = image;
     }
 
-    public Slide(Integer id, String title, String caption, String image){
-        this.id=id;
-        this.title = title;
-        this.caption = caption;
-        this.image = image;
-    }
-
     public Integer getId(){
         return id;
     }
@@ -47,4 +40,10 @@ public class Slide {
     public String getCaption(){
         return caption;
     }
+
+    public void setImage(String image){ this.image = image; }
+
+    public void setTitle(String title){ this.title = title; }
+
+    public void setCaption(String caption){ this.caption = caption; }
 }

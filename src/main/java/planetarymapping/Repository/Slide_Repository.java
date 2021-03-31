@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface SlideRepository extends JpaRepository<Slide, Integer> {
+public interface Slide_Repository extends JpaRepository<Slide, Integer> {
    List<Slide> findAll();
 
    Slide findAllById(Integer id);

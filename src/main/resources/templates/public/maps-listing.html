@@ -2,24 +2,60 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <title>Map Library</title>
+    <script>
+        function change3D(){
+            document.getElementById("map2D").style.display = "block";
+            document.getElementById("list2D").style.display = "block";
+            document.getElementById("map3D").style.display = "none";
+            document.getElementById("list3D").style.display = "none";
+        }
+        function change2D(){
+            document.getElementById("map2D").style.display = "none";
+            document.getElementById("list2D").style.display = "none";
+            document.getElementById("map3D").style.display = "block";
+            document.getElementById("list3D").style.display = "block";
+        }
+    </script>
 </head>
 <body>
     <section layout:fragment="content">
         <div class="map-wrap">
             <div class="map-list-wrap">
                 <h1 class="psyche-headline">Select a Map to View.</h1>
-                <table>
-                    <tr th:each="map,iterStat : ${maps}">
+                <div class="tabContainer">
+                    <button id="map3D" onclick="change3D()">3D Map</button>
+                    <button id="map2D" onclick="change2D()" >2D Map</button>
+                </div>
+                <table id="list3D">
+                    <tr th:each="map,iterStat : ${maps3D}">
                         <td>
-                            <a style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
-                                <p th:text="${map.title}" class="psyche-body"> </p>
+                            <a th:href="${'/map' + map.dimension + '/' + map.id}">
+                                <p th:text="${map.title + ' - 3D'}" class="psyche-body"> </p>
                             </a>
                         </td>
                         <td>
                             <p> &nbsp;&nbsp;&nbsp;</p>
                         </td>
                         <td>
-                            <a id="map" style="display: flex; flex-direction: row;" th:href="${'/map/' + map.id}">
+                            <a class="map" th:href="${'/map' + map.dimension + '/' + map.id}">
+                                <img th:src="${'/uploads/' + map.image}" height="100" width="100">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table id="list2D" style="display:none;">
+                    <tr th:each="map,iterStat : ${maps2D}">
+                        <td>
+                            <a th:href="${'/map' + map.dimension + '/' + map.id}">
+                                <p th:text="${map.title + ' - 2D'}" class="psyche-body"> </p>
+                            </a>
+                        </td>
+                        <td>
+                            <p> &nbsp;&nbsp;&nbsp;</p>
+                        </td>
+                        <td>
+                            <a class="map" th:href="${'/map' + map.dimension + '/' + map.id}">
                                 <img th:src="${map.image}" height="100" width="100">
                             </a>
                         </td>

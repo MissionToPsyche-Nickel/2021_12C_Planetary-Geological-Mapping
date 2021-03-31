@@ -1,37 +1,88 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">-->
-<!--<head>-->
-<!--    <title>Admin Slider</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <section layout:fragment="content">-->
-<!--        <p>&nbsp;</p>-->
-<!--        <a class="btn btn-primary" th:href="@{/admin/slider/add}" role="button">Add New</a>-->
-<!--        <p>&nbsp;</p>-->
-<!--        <table class="table">-->
-<!--            <thead>-->
-<!--                <tr>-->
-<!--                    <th scope="col">Number</th>-->
-<!--                    <th scope="col">ID</th>-->
-<!--                    <th scope="col">Title</th>-->
-<!--                    <th scope="col">Link</th>-->
-<!--                    <th scope="col">Image</th>-->
-<!--                    <th scope="col">Facts</th>-->
-<!--                    <th scope="col">Edit/Delete</th>-->
-<!--                </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--                <tr th:each="map, iStat : ${maps}">-->
-<!--                    <th scope="row" th:text="${iStat.count}"></th>-->
-<!--                    <td th:text="${map.id}"></td>-->
-<!--                    <td th:text="${map.title}"></td>-->
-<!--                    <td th:text="${map.link}"></td>-->
-<!--                    <td th:text="${map.image}"></td>-->
-<!--                    <td th:text="${map.facts}"></td>-->
-<!--                    <td><a th:href="${'/admin/slider/edit/' + map.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/slider/delete/' + map.id}"> Delete</a></td>-->
-<!--                </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
-<!--    </section>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
+<head>
+    <title>Admin Map</title>
+
+    <script>
+        function change3D(){
+            document.getElementById("map2D").style.display = "block";
+            document.getElementById("list2D").style.display = "block";
+            document.getElementById("map3D").style.display = "none";
+            document.getElementById("list3D").style.display = "none";
+        }
+        function change2D(){
+            document.getElementById("map2D").style.display = "none";
+            document.getElementById("list2D").style.display = "none";
+            document.getElementById("map3D").style.display = "block";
+            document.getElementById("list3D").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <section layout:fragment="content">
+        <p>&nbsp;</p>
+        <div class="tabContainer">
+            <h1>Maps</h1>
+            <button id="map3D" onclick="change3D()">3D Map</button>
+            <button id="map2D" onclick="change2D()" >2D Map</button>
+        </div>
+        <p>&nbsp;</p>
+        <div style="display: flex; flex-direction: row;">
+            <a class="btn btn-primary" th:href="@{/admin/map/add3d}" role="button">Add New - 3D</a>
+            <p>&nbsp;</p>
+            <a class="btn btn-primary" th:href="@{/admin/map/add2d}" role="button">Add New - 2D</a>
+        </div>
+        <p>&nbsp;</p>
+        <table id="list3D" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Dimension</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Facts</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="map, iStat : ${maps3d}">
+                    <th scope="row" th:text="${iStat.count}"></th>
+                    <td th:text="${map.dimension}"></td>
+                    <td th:text="${map.title}"></td>
+                    <td th:text="${map.link}"></td>
+                    <td th:text="${map.image}"></td>
+                    <td th:text="${map.facts}"></td>
+                    <td><a th:href="${'/admin/map/edit' + map.dimension + '/' + map.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/map/delete' + map.dimension + '/' + map.id}"> Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="list2D" class="table" style="display: none;">
+            <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">Title</th>
+                <th scope="col">Link</th>
+                <th scope="col">Image</th>
+                <th scope="col">Facts</th>
+                <th scope="col">Edit/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="map, iStat : ${maps2d}">
+                <th scope="row" th:text="${iStat.count}"></th>
+                <td th:text="${map.dimension}"></td>
+                <td th:text="${map.title}"></td>
+                <td th:text="${map.link}"></td>
+                <td th:text="${map.image}"></td>
+                <td th:text="${map.facts}"></td>
+                <td><a th:href="${'/admin/map/edit' + map.dimension + '/' + map.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/map/delete' + map.dimension + '/' + map.id}"> Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+</body>
+</html>

@@ -2,14 +2,14 @@
 body
 {
     font-family: sans-serif;
-    overflow-x: hidden;
-    /*min-height: 100vh;*/
-    height: 100vh;
 
+    height: 100%;
+    margin: 0;
 }
-.main-content{
-    overflow: auto;
-    height: 110vh;
+
+.wrapper {
+    min-height: 99vh;
+    margin: 0 auto -50px;
 }
 
 .psyche-headline {
@@ -86,20 +86,37 @@ body
 }
 
 /*index.html*/
-.d-block{
-    max-height: 900px;
-}
-
 .carousel-caption{
     background: rgba(60,60,60,0.50);
 }
 
 .carousel-item{
+    height: 800px;
+    width: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
+#home-carousel {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.CTA-container{
+    text-align: center;
+}
+
+.cta-button{
+    background-color: #302144 !important;
+    border-color: #302144 !important
+}
+
+.cta-button:hover{
+    background-color: #f47c33 !important;
+    border-color: #f47c33 !important;
+}
 /*geological-mapping.html*/
-/*NEEDS REDONE*/
 #geo-content{
     display: flex;
     flex-wrap: wrap;
@@ -111,7 +128,6 @@ body
     flex: 50%;
 }
 .geo-images{
-    /*position: absolute;*/
     flex: 50%;
     width: 100%;
 }
@@ -143,9 +159,10 @@ body
 
 .geo-psyche{
     top: 270px;
-    right: -130px;
+    right: -105px;
     position: absolute;
     transform: rotate(90deg);
+    height: 54%;
 }
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
 @media (max-width: 800px) {
@@ -155,11 +172,11 @@ body
 }
 
 /*Map List*/
-#map{
+.map{
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
 }
-#map:hover{
+.map:hover{
     opacity: 1;
     transition: all 0.5s ease-in-out;
 }
@@ -169,32 +186,18 @@ body
 .map-list-wrap{
     flex: 50%;
 }
-.map-list-wrap a:hover{
-    text-decoration: none;
-
-}
 .index-ref-wrap{
-    /*display: flex;*/
     width: 500px;
     margin-right: 200px;
     border-radius: 15px;
     border: 1px solid red;
     float: right;
-    /*flex: 50%;*/
     padding: 20px;
 }
 .ref-div{
     flex: 50%;
 }
-/*.link-preview{*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    border: 1px solid black;*/
-/*    width: 300px;*/
-/*    height: 300px;*/
-/*    !*flex: 50%;*!*/
-/*    float: right;*/
-/*}*/
+
 .ref-summary{
     flex: 50%;
     list-style: none;
@@ -209,7 +212,6 @@ body
     color: #A53F5B;
     font-weight: bold;
 }
-
 /*maps.html, moon.html, mars.html, psyche.html*/
 .iframeContainer{
     width: 100%;
@@ -355,7 +357,6 @@ body
 .toggle-title-psyche{
     transform: rotate(270deg);
     position: fixed;
-    /*top: 150px;*/
     bottom: 260px;
     right: -35px;
     z-index: 1;
@@ -367,7 +368,6 @@ body
 }
 .psyche-toggle{
     position: fixed;
-    /*top: 150px;*/
     bottom: 350px;
     right: 20px;
     z-index: 1;
@@ -388,6 +388,10 @@ body
 }
 
 /*footer*/
+footer, .push {
+    height: 50px;
+}
+
 .footer > p {
     text-align: center;
     background-color: #333333;

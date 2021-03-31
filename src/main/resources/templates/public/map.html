@@ -6,17 +6,6 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <script>
-        function change3D(){
-                document.getElementById("map3D").style.display = "block";
-                document.getElementById("map2D").style.display = "none";
-        }
-        function change2D(){
-                document.getElementById("map3D").style.display = "none";
-                document.getElementById("map2D").style.display = "block";
-        }
-
-
-
         function changeArrow(){
             if(document.getElementById('toggler').checked){
                 document.getElementById('arrow').classList.remove('icon-arrow-left');
@@ -42,17 +31,7 @@
 
 
             <h1 th:text="${map.title}" class="psyche-headline"></h1>
-<!--            <iframe th:if="${map.link}" width="100%" height="920" frameborder="0" scrolling="no" th:src="${map.link}"></iframe>-->
-            <div class="iframeContainer">
-                <div class="tabContainer">
-                    <button id="btn1" onclick="change3D()">3D Map</button>
-                    <button id="btn2" onclick="change2D()">2D Map</button>
-                </div>
-                    <div id="map3D" class="mapcontent"><iframe th:if="${map.link}" width="100%" height="920" frameborder="0" scrolling="no" allowfullscreen th:src="${map.link}"></iframe></div>
-                    <div id="map2D" class="mapcontent"><iframe src="https://pennstate.maps.arcgis.com/apps/View/index.html?appid=9bf0b457bb4743ca9dfe002c8bfd9044" width="100%" height="920" frameborder="0" scrolling="no" allowfullscreen></iframe></div>
-            </div>
-
-
+                <iframe th:if="${map.link}" width="100%" height="920" frameborder="0" scrolling="no" th:src="${map.link}"></iframe>
 
             <div class="side-desc">
                 <h2 th:text="${map.title}"></h2>
