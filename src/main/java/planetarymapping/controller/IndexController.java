@@ -46,4 +46,5 @@ public class IndexController implements ErrorController {
         model.addAttribute("slides", slides);
         return "public/index";
     }
+
 }

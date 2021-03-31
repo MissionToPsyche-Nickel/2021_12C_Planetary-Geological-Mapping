@@ -9,7 +9,7 @@ body
 }
 .main-content{
     overflow: auto;
-    height: 100vh;
+    height: 110vh;
 }
 
 .psyche-headline {
@@ -169,6 +169,10 @@ body
 .map-list-wrap{
     flex: 50%;
 }
+.map-list-wrap a:hover{
+    text-decoration: none;
+
+}
 .index-ref-wrap{
     /*display: flex;*/
     width: 500px;
@@ -205,6 +209,7 @@ body
     color: #A53F5B;
     font-weight: bold;
 }
+
 /*maps.html, moon.html, mars.html, psyche.html*/
 .iframeContainer{
     width: 100%;
