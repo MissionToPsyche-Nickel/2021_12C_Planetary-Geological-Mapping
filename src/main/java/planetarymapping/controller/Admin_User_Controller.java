@@ -1,12 +1,15 @@
 package planetarymapping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import planetarymapping.Repository.User_Repository;
-import planetarymapping.model.User;
+import planetarymapping.model.Users;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -16,10 +19,13 @@ public class Admin_User_Controller {
     @Autowired
     User_Repository userRepo;
 
+    @Autowired
+    PasswordEncoder encoder;
+
     /*user Admin*/
     @GetMapping("")
     public String user(Model model){
-        List<User> users = userRepo.findAll();
+        List<Users> users = userRepo.findAll();
         model.addAttribute("users", users);
         return "admin/user/admin-user";
     }
@@ -33,10 +39,11 @@ public class Admin_User_Controller {
     public String userAdded(Model model, @RequestParam("userName") String userName,
                                  @RequestParam("password") String password){
 
-        User user = new User(userName, password);
+        String encoded = encoder.encode(password);
+        Users user = new Users(userName, encoded);
         userRepo.save(user);
 
-        List<User> users = userRepo.findAll();
+        List<Users> users = userRepo.findAll();
         model.addAttribute("users", users);
         return "admin/user/admin-user";
     }
@@ -44,23 +51,23 @@ public class Admin_User_Controller {
     @GetMapping("/edit/{id}")
     public String userEdit(@PathVariable int id, Model model){
 
-        User user = userRepo.findAllById(id);
+        Users user = userRepo.findAllById(id);
         model.addAttribute("user", user);
         return "admin/user/admin-user-edit";
     }
 
     @PostMapping("/edit/{id}")
-    public String userEdited(Model model, @PathVariable int id, @RequestParam("userName") String userName,
-                                  @RequestParam("password") String password){
+    public String userEdited(@PathVariable int id, Model model, @RequestParam("userName") String userName,
+                             @RequestParam("password") String password){
 
-        User user = userRepo.findAllById(id);
+        Users user = userRepo.findAllById(id);
 
         user.setUserName(userName);
-        user.setPassword(password);
+        user.setPassword(encoder.encode(password));
 
         userRepo.save(user);
 
-        List<User> users = userRepo.findAll();
+        List<Users> users = userRepo.findAll();
         model.addAttribute("users", users);
         return "admin/user/admin-user";
     }
@@ -68,7 +75,7 @@ public class Admin_User_Controller {
     @GetMapping("/delete/{id}")
     public String userDelete(@PathVariable int id, Model model){
 
-        User user = userRepo.findAllById(id);
+        Users user = userRepo.findAllById(id);
         model.addAttribute("user", user);
         return "admin/user/admin-user-delete";
     }
@@ -78,7 +85,7 @@ public class Admin_User_Controller {
 
         userRepo.deleteById(id);
 
-        List<User> users = userRepo.findAll();
+        List<Users> users = userRepo.findAll();
         model.addAttribute("users", users);
         return "admin/user/admin-user";
     }
