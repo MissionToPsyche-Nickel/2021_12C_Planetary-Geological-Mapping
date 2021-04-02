@@ -14,7 +14,6 @@
             <thead>
                 <tr>
                     <th scope="col">Number</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Caption</th>
                     <th scope="col">Image</th>
@@ -24,7 +23,6 @@
             <tbody>
                 <tr th:each="slide, iStat : ${slides}">
                     <th scope="row" th:text="${iStat.count}"></th>
-                    <td th:text="${slide.id}"></td>
                     <td th:text="${slide.title}"></td>
                     <td th:text="${slide.caption}"></td>
                     <td th:text="${slide.image}"></td>

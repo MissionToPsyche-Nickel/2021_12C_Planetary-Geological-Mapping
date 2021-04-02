@@ -14,7 +14,6 @@
             <thead>
                 <tr>
                     <th scope="col">Number</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Paragraph</th>
                     <th scope="col">Edit/Delete</th>
@@ -23,7 +22,6 @@
             <tbody>
                 <tr th:each="accordion, iStat : ${accordions}">
                     <th scope="row" th:text="${iStat.count}"></th>
-                    <td th:text="${accordion.id}"></td>
                     <td th:text="${accordion.title}"></td>
                     <td th:text="${accordion.paragraph}"></td>
                     <td><a th:href="${'/admin/accordion/edit/' + accordion.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/accordion/delete/' + accordion.id}"> Delete</a></td>
