@@ -10,6 +10,7 @@ body
 .wrapper {
     min-height: 99vh;
     margin: 0 auto -50px;
+    padding: 0 50px;
 }
 
 .psyche-headline {
@@ -118,8 +119,7 @@ body
 }
 
 .cta-button:hover{
-    background-color: #f47c33 !important;
-    border-color: #f47c33 !important;
+    opacity: 0.75;
 }
 /*geological-mapping.html*/
 #geo-content{
@@ -177,6 +177,16 @@ body
 }
 
 /*Map List*/
+.tabContainer button{
+    background-color: #FFFFFF;
+    border: 1pt solid #302144;
+    color: #302144;
+}
+
+.tabContainer button:hover{
+    opacity: 0.75;
+}
+
 .map{
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
@@ -401,6 +411,10 @@ body
     text-align: left;
     position: relative;
     color: #302144;
+}
+
+.accordion-button:hover{
+    opacity: 0.75;
 }
 
 .plus::after{

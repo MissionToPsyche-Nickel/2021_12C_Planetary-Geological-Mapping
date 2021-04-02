@@ -1,12 +1,11 @@
 $(document).ready(function(){
-
-
-    $("button.accordion-button").on("click", function(event){
+    var $buttons = $("button.accordion-button");
+    $buttons.on("click", function(event){
+        $buttons.not(this).addClass("plus");
+        $buttons.not(this).removeClass("minus");
         $(this).toggleClass("plus");
         $(this).toggleClass("minus");
     });
-
-
 });
 
 function change3D(){
