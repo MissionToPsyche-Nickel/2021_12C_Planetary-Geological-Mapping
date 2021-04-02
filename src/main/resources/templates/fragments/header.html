@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"  lang="en">
+<html xmlns:th="https://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
 <body>
 <div id="nav" th:fragment="nav">
 
@@ -12,16 +12,22 @@
                 <a href="https://psyche.asu.edu/" target="_blank" rel="noopener"  class="navbar-brand">&nbsp Psyche</a>
             </li>
             <li>
-                <a class="nav-link" th:href="@{/}">&nbsp Home</a>
+                <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active' : ''}" th:href="@{/}">&nbsp Home</a>
             </li>
             <li>
-                <a class="nav-link" th:href="@{/geologic-mapping}">&nbsp Geologic Mapping</a>
+                <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/geologic-mapping' ? 'active' : ''}" th:href="@{/geologic-mapping}">&nbsp Geologic Mapping</a>
             </li>
             <li>
-                <a class="nav-link" th:href="@{/map}">&nbsp Map Library</a>
+                <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/map' ? 'active' : ''}" th:href="@{/map}">&nbsp Map Library</a>
             </li>
-            <li>
+            <li sec:authorize="isAnonymous()">
                 <a class="nav-link" th:href="@{/admin}">&nbsp Login</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/admin' ? 'active' : ''}" th:href="@{/admin}">&nbsp Admin</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/logout}">&nbsp Log Out</a>
             </li>
         </ul>
 

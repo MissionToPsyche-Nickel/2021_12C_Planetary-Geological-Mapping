@@ -34,11 +34,16 @@ body
     font-size: 20px;
 }
 #navbar-nav li a{
-    color: black;
+    color: #302144;
     font-size: 20px;
- }
+}
+
+#navbar-nav  .active{
+    color: #ef5966;
+}
+
 #navbar-nav li a:hover{
-    color: red;
+    color:#ef5966;
     text-decoration: none;
 }
 #nav .links-wrapper{
@@ -109,7 +114,7 @@ body
 
 .cta-button{
     background-color: #302144 !important;
-    border-color: #302144 !important
+    border-color: #302144 !important;
 }
 
 .cta-button:hover{
@@ -385,6 +390,41 @@ body
 #toggler:checked + .page-wrap .psyche-toggle{
 
     right: 400px;
+}
+
+/*Accordian*/
+.accordion-button{
+    width: 800px;
+    background-color: #FFFFFF;
+    border: 0;
+    border-bottom: 1px solid #302144;
+    text-align: left;
+    position: relative;
+    color: #302144;
+}
+
+.plus::after{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    font-family: FontAwesome;
+    content: '\f067';
+    font-size: 16px;
+    color: #302144;
+}
+
+.minus::after{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    font-family: FontAwesome;
+    content: '\f068';
+    font-size: 16px;
+    color: #302144;
+}
+
+.accordion-button:focus{
+    outline: none;
 }
 
 /*footer*/

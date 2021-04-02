@@ -26,6 +26,7 @@ public class Map_Controller {
         List<Map2d> maps2D = map2dRepo.findAll();
         model.addAttribute("maps3D", maps3D);
         model.addAttribute("maps2D", maps2D);
+        model.addAttribute("classActiveSettings","active");
         return "public/maps-listing";
     }
 

@@ -14,7 +14,6 @@
             <thead>
                 <tr>
                     <th scope="col">Number</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Username</th>
                     <th scope="col">Password</th>
                     <th scope="col">Edit/Delete</th>
@@ -23,7 +22,6 @@
             <tbody>
                 <tr th:each="user, iStat : ${users}">
                     <th scope="row" th:text="${iStat.count}"></th>
-                    <td th:text="${user.id}"></td>
                     <td th:text="${user.userName}"></td>
                     <td th:text="${user.password}"></td>
                     <td><a th:href="${'/admin/user/edit/' + user.id}">Edit </a>  &nbsp; &nbsp;<a th:href="${'/admin/user/delete/' + user.id}"> Delete</a></td>
