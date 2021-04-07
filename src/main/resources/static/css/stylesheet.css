@@ -203,9 +203,9 @@ body
 }
 .index-ref-wrap{
     width: 500px;
-    margin-right: 200px;
+    margin-right: 20px;
     border-radius: 15px;
-    border: 1px solid red;
+    border: 1px solid #302144;
     float: right;
     padding: 20px;
 }
@@ -222,6 +222,14 @@ body
     text-decoration: none;
     cursor: pointer;
 }
+.map-title:hover{
+    text-decoration: none;
+}
+.map-title:hover p{
+    transition: all 0.2s ease-in-out;
+    color: #A53F5B;
+}
+
 .ref-summary a:hover{
     transition: all 0.2s ease-in-out;
     color: #A53F5B;

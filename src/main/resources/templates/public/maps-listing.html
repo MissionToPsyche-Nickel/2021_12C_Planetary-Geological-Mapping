@@ -15,7 +15,7 @@
                 <table id="list3D">
                     <tr th:each="map,iterStat : ${maps3D}">
                         <td>
-                            <a th:href="${'/map' + map.dimension + '/' + map.id}">
+                            <a class="map-title" th:href="${'/map' + map.dimension + '/' + map.id}">
                                 <p th:text="${map.title + ' - 3D'}" class="psyche-body"> </p>
                             </a>
                         </td>
@@ -33,7 +33,7 @@
                 <table id="list2D" style="display:none;">
                     <tr th:each="map,iterStat : ${maps2D}">
                         <td>
-                            <a th:href="${'/map' + map.dimension + '/' + map.id}">
+                            <a class="map-title" th:href="${'/map' + map.dimension + '/' + map.id}">
                                 <p th:text="${map.title + ' - 2D'}" class="psyche-body"> </p>
                             </a>
                         </td>
@@ -42,14 +42,15 @@
                         </td>
                         <td>
                             <a class="map" th:href="${'/map' + map.dimension + '/' + map.id}">
-                                <img th:src="${map.image}" height="100" width="100">
+                                <img th:src="${'/uploads/' + map.image}" height="100" width="100">
                             </a>
                         </td>
                     </tr>
                 </table>
+<!--                <a id="psyche-blend" class="psyche-body" href="http://localhost:63342/mapapp/templates/public/PsycheBlend.html?_ijt=cd4jksreq4g2vlhc14c71u33qt" rel="noopener" target="_blank">GET YOUR PSYCHE BLEND HERE</a>-->
+
             </div>
 
-            <!--        <iframe src="./PsycheBlend.html" width="200" height="200"></iframe>-->
             <div class="index-ref-wrap">
 
                 <div class="ref-div">
@@ -80,12 +81,13 @@
                         <li>
                             <a class="ref-link"  href="https://www.usgs.gov/centers/astrogeology-science-center" rel="noopener" target="_blank">USGS</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </div>
-
+<!--        <iframe width="1024" height="640" allowfullscreen src="https://cdn.soft8soft.com/AROAJSY2GOEHMOFUVPIOE:e7be3c20c8/player/player.html?load=../applications/Psyche/Psyche.gltf"></iframe>-->
+<!--        <a id="psyche-blend" href="http://localhost:63342/mapapp/templates/public/PsycheBlend.html?_ijt=cd4jksreq4g2vlhc14c71u33qt" rel="noopener" target="_blank">GET YOUR PSYCHE BLEND HERE</a>-->
+<!--        <iframe allowfullscreen src="src/main/resources/templates/public/PsycheBlend.html" width="500px" height="500px"></iframe>-->
     </section>
 
 
