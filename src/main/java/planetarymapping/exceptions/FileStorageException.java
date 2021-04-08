@@ -1,8 +1,8 @@
 package planetarymapping.exceptions;
 
+//Creating the FileStorageException, this gets thrown with any issue related to the file uploader
 public class FileStorageException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
     private String msg;
 
     public FileStorageException(String msg) {

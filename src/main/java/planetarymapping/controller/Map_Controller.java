@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.Map2d_Repository;
-import planetarymapping.Repository.Map3d_Repository;
+import planetarymapping.repository.Map2d_Repository;
+import planetarymapping.repository.Map3d_Repository;
 import planetarymapping.model.Map2d;
 import planetarymapping.model.Map3d;
 
@@ -14,12 +14,15 @@ import java.util.List;
 @Controller
 public class Map_Controller {
 
+    //Injecting the 3d-Map persistence object
     @Autowired
-    Map3d_Repository map3dRepo;
+    private Map3d_Repository map3dRepo;
 
+    //Injecting the 2d-Map persistence object
     @Autowired
-    Map2d_Repository map2dRepo;
+    private Map2d_Repository map2dRepo;
 
+    //Displaying the map root page
     @GetMapping("/map")
     public String mapNav(Model model){
         List<Map3d> maps3D = map3dRepo.findAll();
@@ -30,6 +33,7 @@ public class Map_Controller {
         return "public/maps-listing";
     }
 
+    //Displaying a 3d-Map
     @GetMapping("/map3d/{id}")
     public String map3d(@PathVariable int id, Model model) {
 
@@ -38,6 +42,7 @@ public class Map_Controller {
         return "public/map";
     }
 
+    //Displaying a 2d-Map
     @GetMapping("/map2d/{id}")
     public String map2d(@PathVariable int id, Model model) {
 

@@ -1,4 +1,4 @@
-package planetarymapping.Service;
+package planetarymapping.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.nio.file.StandardCopyOption;
 public class FileService {
 
     @Value("${app.upload.dir:${user.home}}")
-    public String uploadDir;
+    private String uploadDir;
 
     public void uploadFile(MultipartFile file) {
 

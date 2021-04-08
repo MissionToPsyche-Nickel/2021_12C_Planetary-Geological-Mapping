@@ -5,28 +5,37 @@ import javax.persistence.*;
 @Entity
 public class Map2d {
 
+    //Primary Key
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    //Storing page headings and listing title
     private String title;
 
+    //Storing the link generated from arcGIS to display via iFrame
     @Lob
     private String link;
 
+    //Storing the facts to display in the side slider
     @Lob
     private String facts;
 
+    //Storing title to display on the side slider
     private String sliderName;
 
+    //Storing the name of the image to display on the listing
     private String image;
 
+    //Storing the dimension of the map, always 2d
     private String dimension;
 
+    //Default constructor
     public Map2d(){
 
     }
 
+    //Constructor used for creating a new object with values that aren't default
     public Map2d(String title, String link, String facts, String sliderName, String image){
         this.id = id;
         this.title = title;
@@ -37,6 +46,7 @@ public class Map2d {
         this.dimension = "2d";
     }
 
+    //Get methods
     public Integer getId(){
         return id;
     }
@@ -61,6 +71,7 @@ public class Map2d {
 
     public String getDimension(){ return dimension; }
 
+    //Set methods
     public void setTitle(String title){ this.title = title; }
 
     public void setLink(String link){
@@ -74,6 +85,4 @@ public class Map2d {
     public void setSliderName(String sliderName){
         this.sliderName = sliderName;
     }
-
-    public void setDimension(String dimension){ this.dimension = dimension; }
 }
