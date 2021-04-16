@@ -3,7 +3,6 @@
 <head>
     <title>Geologic Mapping</title>
 </head>
-
 <body>
     <!--Content-->
     <section id="geo-content" layout:fragment="content">
@@ -13,7 +12,8 @@
             <div class="accordion" id="geomapping-accordion">
                 <div th:each="accordion,iterStat : ${accordions}" class="accordion-item">
                     <h2 class="accordion-header" th:id="${'heading' + accordion.id}">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" th:text="${accordion.title}" th:data-bs-target="${'#collapse' + accordion.id}" th:aria-expanded="${iterStat.first}? 'true' : 'false'" th:aria-controls="${'#collapse' + accordion.id}">
+                        <button onclick="changeSign()" class="accordion-button" th:classappend="${iterStat.first}? 'minus' : 'plus'" type="button" data-bs-toggle="collapse" th:text="${accordion.title}" th:data-bs-target="${'#collapse' + accordion.id}" th:aria-expanded="${iterStat.first}? 'true' : 'false'" th:aria-controls="${'#collapse' + accordion.id}">
+
                         </button>
                     </h2>
                     <div th:id="${'collapse' + accordion.id}" class="accordion-collapse collapse" th:classappend="${iterStat.first}? 'show'" th:aria-labelledby="${'heading' + accordion.id}" data-bs-parent="#geomapping-accordion">

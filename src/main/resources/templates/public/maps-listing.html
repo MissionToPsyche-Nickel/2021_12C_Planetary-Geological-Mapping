@@ -2,20 +2,6 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <title>Map Library</title>
-    <script>
-        function change3D(){
-            document.getElementById("map2D").style.display = "block";
-            document.getElementById("list2D").style.display = "block";
-            document.getElementById("map3D").style.display = "none";
-            document.getElementById("list3D").style.display = "none";
-        }
-        function change2D(){
-            document.getElementById("map2D").style.display = "none";
-            document.getElementById("list2D").style.display = "none";
-            document.getElementById("map3D").style.display = "block";
-            document.getElementById("list3D").style.display = "block";
-        }
-    </script>
 </head>
 <body>
     <section layout:fragment="content">

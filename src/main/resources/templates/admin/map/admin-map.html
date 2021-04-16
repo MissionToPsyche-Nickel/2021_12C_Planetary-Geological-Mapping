@@ -2,21 +2,6 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en">
 <head>
     <title>Admin Map</title>
-
-    <script>
-        function change3D(){
-            document.getElementById("map2D").style.display = "block";
-            document.getElementById("list2D").style.display = "block";
-            document.getElementById("map3D").style.display = "none";
-            document.getElementById("list3D").style.display = "none";
-        }
-        function change2D(){
-            document.getElementById("map2D").style.display = "none";
-            document.getElementById("list2D").style.display = "none";
-            document.getElementById("map3D").style.display = "block";
-            document.getElementById("list3D").style.display = "block";
-        }
-    </script>
 </head>
 <body>
     <section layout:fragment="content">
@@ -28,9 +13,9 @@
         </div>
         <p>&nbsp;</p>
         <div style="display: flex; flex-direction: row;">
-            <a class="btn btn-primary" th:href="@{/admin/map/add3d}" role="button">Add New - 3D</a>
+            <a id="add3D" class="btn btn-primary" th:href="@{/admin/map/add3d}" role="button">Add New - 3D</a>
             <p>&nbsp;</p>
-            <a class="btn btn-primary" th:href="@{/admin/map/add2d}" role="button">Add New - 2D</a>
+            <a id="add2D" class="btn btn-primary" th:href="@{/admin/map/add2d}" role="button" style="display: none;">Add New - 2D</a>
         </div>
         <p>&nbsp;</p>
         <table id="list3D" class="table">

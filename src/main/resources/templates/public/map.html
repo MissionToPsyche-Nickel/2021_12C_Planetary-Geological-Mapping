@@ -2,22 +2,6 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <title th:text="${map.title}"></title>
-
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-    <script>
-        function changeArrow(){
-            if(document.getElementById('toggler').checked){
-                document.getElementById('arrow').classList.remove('icon-arrow-left');
-                document.getElementById('arrow').classList.add('icon-arrow-right');
-            }
-            else {
-                document.getElementById('arrow').classList.remove('icon-arrow-right');
-                document.getElementById('arrow').classList.add('icon-arrow-left');
-            }
-        }
-    </script>
-
 </head>
 <body>
     <section layout:fragment="content">
