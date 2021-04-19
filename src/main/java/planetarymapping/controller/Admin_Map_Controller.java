@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import planetarymapping.Repository.Map2d_Repository;
-import planetarymapping.Repository.Map3d_Repository;
-import planetarymapping.Service.FileService;
+import planetarymapping.repository.Map2d_Repository;
+import planetarymapping.repository.Map3d_Repository;
+import planetarymapping.service.FileService;
 import planetarymapping.model.Map2d;
 import planetarymapping.model.Map3d;
 
@@ -17,16 +17,19 @@ import java.util.List;
 @RequestMapping("/admin/map")
 public class Admin_Map_Controller {
 
+    //Injecting the Map3d persistence object
     @Autowired
     Map3d_Repository map3dRepo;
 
+    //Injecting the Map2d persistence object
     @Autowired
     Map2d_Repository map2dRepo;
 
+    //Injecting the service used for file uploads
     @Autowired
     FileService fileService;
 
-    /*Map Admin*/
+    //Displaying the root map admin page
     @GetMapping("")
     public String map(Model model){
         List<Map3d> maps3d = map3dRepo.findAll();
@@ -36,16 +39,19 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Displaying the 3d-map add page
     @GetMapping("/add3d")
     public String map3dAdd(){
         return "admin/map/admin-map-add";
     }
 
+    //Displaying the 2d-map add page
     @GetMapping("/add2d")
     public String map2dAdd(){
         return "admin/map/admin-map-add";
     }
 
+    //Processing a new 3d-map
     @PostMapping("/add3d")
     public String map3dAdded(Model model, @RequestParam("title") String title,
                            @RequestParam("link") String link, @RequestParam("facts") String facts,
@@ -63,6 +69,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Processing a new 2d-map
     @PostMapping("/add2d")
     public String map2dAdded(Model model, @RequestParam("title") String title,
                            @RequestParam("link") String link, @RequestParam("facts") String facts,
@@ -80,6 +87,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Displaying the 3d-map to edit
     @GetMapping("/edit3d/{id}")
     public String map3dEdit(@PathVariable int id, Model model){
 
@@ -89,6 +97,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map-edit";
     }
 
+    //Displaying the 2d-map to edit
     @GetMapping("/edit2d/{id}")
     public String map2dEdit(@PathVariable int id, Model model){
 
@@ -98,6 +107,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map-edit";
     }
 
+    //Processing the edited 3d-map
     @PostMapping("/edit3d/{id}")
     public String map3dEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
@@ -122,6 +132,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Processing the edited 2d-map
     @PostMapping("/edit2d/{id}")
     public String map2dEdited(Model model, @PathVariable int id, @RequestParam("title") String title,
                             @RequestParam("link") String link, @RequestParam("facts") String facts,
@@ -146,6 +157,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Displaying the 3d-map to delete
     @GetMapping("/delete3d/{id}")
     public String map3dDelete(@PathVariable int id, Model model){
 
@@ -154,6 +166,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map-delete";
     }
 
+    //Displaying the 2d-map to delete
     @GetMapping("/delete2d/{id}")
     public String map2dDelete(@PathVariable int id, Model model){
 
@@ -162,6 +175,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map-delete";
     }
 
+    //Processing the deleted 3d-map
     @PostMapping("/delete3d/{id}")
     public String map3dDeleted(Model model,@PathVariable int id){
 
@@ -172,6 +186,7 @@ public class Admin_Map_Controller {
         return "admin/map/admin-map";
     }
 
+    //Processing the deleted 2d-map
     @PostMapping("/delete2d/{id}")
     public String map2dDeleted(Model model,@PathVariable int id){
 

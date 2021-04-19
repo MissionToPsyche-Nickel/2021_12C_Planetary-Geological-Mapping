@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 @RequestMapping("/admin")
 public class Admin_Controller {
 
+    //Displaying the admin home
     @GetMapping("")
     public String admin(){
         return "admin/admin-home";

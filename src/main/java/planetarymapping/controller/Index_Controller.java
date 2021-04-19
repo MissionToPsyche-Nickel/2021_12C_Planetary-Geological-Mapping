@@ -1,12 +1,3 @@
-/*********************************************************************************/
-/**                                                                             **/
-/**This file is responsible for controlling the error view.                     **/
-/**When the site runs into an issue this controller displays the error view.    **/
-/**Hiding the stack trace from the error.                                       **/
-/**                                                                             **/
-/** Last modified 10/23/2020  by James Lanham jrl5748@psu.edu                   **/
-/*********************************************************************************/
-
 package planetarymapping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +5,7 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import planetarymapping.Repository.Slide_Repository;
+import planetarymapping.repository.Slide_Repository;
 import planetarymapping.model.Slide;
 
 import java.util.List;
@@ -22,15 +13,13 @@ import java.util.List;
 @Controller
 public class Index_Controller implements ErrorController {
 
-    private static final String PATH = "/error";
-
+    //Injecting the Slider persistence object
     @Autowired
     Slide_Repository slideRepo;
 
+    //Overriding the base error path
     @Override
-    public String getErrorPath() {
-        return PATH;
-    }
+    public String getErrorPath() { return "/error"; }
 
     //Displaying the error view
     @GetMapping("/error")

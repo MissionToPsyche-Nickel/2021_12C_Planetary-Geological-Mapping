@@ -1,28 +1,28 @@
 package planetarymapping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import planetarymapping.Repository.User_Repository;
+import planetarymapping.repository.User_Repository;
 import planetarymapping.model.Users;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin/user")
 public class Admin_User_Controller {
 
+    //Injecting the User persistence object
     @Autowired
     User_Repository userRepo;
 
+    //Injecting the password encoder bean
     @Autowired
     PasswordEncoder encoder;
 
-    /*user Admin*/
+    //Displaying the root user admin page
     @GetMapping("")
     public String user(Model model){
         List<Users> users = userRepo.findAll();
@@ -30,11 +30,13 @@ public class Admin_User_Controller {
         return "admin/user/admin-user";
     }
 
+    //Displaying the add new user page
     @GetMapping("/add")
     public String userAdd(){
         return "admin/user/admin-user-add";
     }
 
+    //Processing the new user
     @PostMapping("/add")
     public String userAdded(Model model, @RequestParam("userName") String userName,
                                  @RequestParam("password") String password){
@@ -48,6 +50,7 @@ public class Admin_User_Controller {
         return "admin/user/admin-user";
     }
 
+    //Displaying the user to edit
     @GetMapping("/edit/{id}")
     public String userEdit(@PathVariable int id, Model model){
 
@@ -56,6 +59,7 @@ public class Admin_User_Controller {
         return "admin/user/admin-user-edit";
     }
 
+    //Processing the edited user
     @PostMapping("/edit/{id}")
     public String userEdited(@PathVariable int id, Model model, @RequestParam("userName") String userName,
                              @RequestParam("password") String password){
@@ -72,6 +76,7 @@ public class Admin_User_Controller {
         return "admin/user/admin-user";
     }
 
+    //Displaying the user to delete
     @GetMapping("/delete/{id}")
     public String userDelete(@PathVariable int id, Model model){
 
@@ -80,6 +85,7 @@ public class Admin_User_Controller {
         return "admin/user/admin-user-delete";
     }
 
+    //Processing the user to delete
     @PostMapping("/delete/{id}")
     public String userDeleted(Model model,@PathVariable int id){
 
